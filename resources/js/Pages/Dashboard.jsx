@@ -1,0 +1,185 @@
+import MainLayout from "@/Layouts/MainLayout";
+import DashboardWidget from "@/Components/DashboardWidget";
+import PageHeader from "@/Components/PageHeader";
+import { Head } from "@inertiajs/react";
+
+export default function Dashboard({
+    shipCount,
+    logisticCount,
+    cargoActivityCount,
+    riskStatus,
+}) {
+    return (
+        <MainLayout>
+            <Head title="Dashboard" />
+
+            <PageHeader
+                title="Dashboard"
+                description="Profil & Visi Misi PT. Pelabuhan Indonesia (Persero) Cabang Sibolga"
+            />
+
+            <div className="p-8 bg-gray-50">
+                <div className="mb-8">
+                    <h2 className="text-xl font-semibold mb-4">Profil</h2>
+                    <div className="bg-white rounded-lg shadow p-6">
+                        <p className="text-gray-700">
+                            PT. Pelabuhan Indonesia (Persero) Cabang Sibolga
+                            adalah bagian dari Pelindo Group yang beroperasi
+                            sebagai penyedia jasa kepelabuhanan di wilayah
+                            Pantai Barat Sumatera. Sebagai pelabuhan strategis,
+                            cabang Sibolga berperan penting dalam mendukung arus
+                            perdagangan, logistik, dan distribusi barang,
+                            khususnya untuk wilayah Sumatera Utara. Dengan
+                            pengalaman dan jaringan yang luas, Pelindo Sibolga
+                            terus berkomitmen meningkatkan pelayanan demi
+                            mendukung pertumbuhan ekonomi nasional dan regional.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-xl font-semibold mb-4">Fasilitas</h2>
+                    <div className="bg-white rounded-lg shadow p-6">
+                        <p className="text-gray-700">
+                            Pelindo Sibolga dilengkapi dengan berbagai fasilitas
+                            modern untuk mendukung operasional pelabuhan yang
+                            efisien, antara lain dermaga yang memadai untuk
+                            berbagai jenis kapal, area bongkar muat yang luas,
+                            gudang penyimpanan, terminal peti kemas, serta
+                            sistem teknologi informasi terintegrasi untuk
+                            memastikan kelancaran arus barang. Fasilitas
+                            pendukung seperti alat berat, truk pengangkut, dan
+                            sistem keamanan yang canggih juga tersedia guna
+                            menjamin keandalan dan kecepatan layanan.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h2 className="text-xl font-semibold mb-4">Visi</h2>
+                        <div className="bg-white rounded-lg shadow p-6 h-full">
+                            <p className="text-gray-700">
+                                Menjadi pusat logistik dan pelabuhan terkemuka
+                                di Pantai Barat Sumatera yang berdaya saing
+                                global, mendorong pertumbuhan ekonomi daerah,
+                                serta menjadi penghubung perdagangan
+                                internasional yang andal dan efisien.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="text-xl font-semibold mb-4">Misi</h2>
+                        <div className="bg-white rounded-lg shadow p-6 h-full">
+                            <p className="text-gray-700">
+                                1. Menyediakan layanan pelabuhan yang berkualitas
+                                tinggi dengan mengutamakan kecepatan, keamanan,
+                                dan kepuasan pelanggan. <br />
+                                2. Mengoptimalkan
+                                pemanfaatan infrastruktur dan teknologi untuk
+                                meningkatkan efisiensi operasional. <br />
+                                3. Mengembangkan sumber daya manusia yang
+                                profesional dan berintegritas guna mendukung
+                                kinerja perusahaan. <br />
+                                4. Menjalin kemitraan strategis
+                                dengan pemangku kepentingan untuk menciptakan
+                                nilai tambah bagi masyarakat dan perekonomian
+                                nasional. <br />
+                                5. Berkomitmen pada prinsip keberlanjutan
+                                dan tanggung jawab sosial dalam setiap
+                                operasional perusahaan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <DashboardWidget
+                        title="Jumlah Kapal"
+                        value={shipCount}
+                        icon={
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6 text-blue-600"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                                />
+                            </svg>
+                        }
+                    />
+
+                    <DashboardWidget
+                        title="Jumlah Logistik"
+                        value={logisticCount}
+                        icon={
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6 text-blue-600"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                                />
+                            </svg>
+                        }
+                    />
+
+                    <DashboardWidget
+                        title="Aktivitas Bongkar Muat"
+                        value={cargoActivityCount}
+                        icon={
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6 text-blue-600"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
+                                />
+                            </svg>
+                        }
+                    />
+
+                    <DashboardWidget
+                        title="Status Risiko"
+                        value={riskStatus}
+                        icon={
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6 text-blue-600"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                                />
+                            </svg>
+                        }
+                    />
+                </div>
+            </div>
+        </MainLayout>
+    );
+}
