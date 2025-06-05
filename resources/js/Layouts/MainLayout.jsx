@@ -1,10 +1,18 @@
 import { Link, usePage } from "@inertiajs/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function MainLayout({ children }) {
     const { auth } = usePage().props;
     const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [currentTime, setCurrentTime] = useState(new Date());
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000);
+        return () => clearInterval(timer);
+    }, []);
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -154,18 +162,19 @@ export default function MainLayout({ children }) {
     ];
 
     return (
-        <div className="flex flex-col md:flex-row min-h-screen">
+        <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
             {/* Mobile Menu Button */}
-            <div className="md:hidden bg-white p-4 border-b flex justify-between items-center">
+            <div className="md:hidden bg-gradient-to-r from-blue-900 to-blue-800 p-4 flex justify-between items-center shadow-md">
                 <div className="flex items-center">
-                    <img src="/logo.png" className="w-10 h-10 rounded-full" />
+                    <img src="/logo.png" className="w-10 h-10 rounded-full border-2 border-white shadow-lg" />
                     <div className="ml-2">
-                        <h2 className="text-sm font-semibold">
+                        <h2 className="text-sm font-semibold text-white">
                             PT. Pelabuhan Indonesia
                         </h2>
+                        <p className="text-xs text-blue-100">Sibolga</p>
                     </div>
                 </div>
-                <button onClick={toggleMobileMenu} className="text-gray-500">
+                <button onClick={toggleMobileMenu} className="text-white hover:bg-blue-700 p-2 rounded-lg transition-all">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
@@ -194,82 +203,164 @@ export default function MainLayout({ children }) {
 
             {/* Sidebar for both mobile and desktop */}
             <div
-                className={`${
-                    mobileMenuOpen ? "block" : "hidden"
-                } md:block md:w-1/5 bg-white border-r`}
+                className={`md:w-1/5 bg-gradient-to-b from-blue-900 to-blue-800 text-white shadow-xl z-10 relative flex flex-col ${mobileMenuOpen ? 'flex' : 'hidden'} md:flex`}
             >
-                <div className="p-6 border-b hidden md:block">
-                    <div className="flex items-center">
-                        <img
-                            src="/logo.png"
-                            className="w-10 h-10 rounded-full"
-                        />
-                        <div className="ml-4">
-                            <h2 className="text-lg font-semibold">
-                                PT. Pelabuhan
-                            </h2>
-                            <h3 className="text-md">Indonesia (persero)</h3>
-                            <h4 className="text-sm">cabang sibolga</h4>
-                        </div>
+                <div className="p-5 border-b border-blue-700 flex items-center space-x-3">
+                    <img src="/logo.png" className="w-12 h-12 rounded-full border-2 border-white shadow-lg" />
+                    <div>
+                        <h2 className="font-bold text-lg text-white">PT. Pelindo</h2>
+                        <p className="text-sm text-blue-200">Cabang Sibolga</p>
                     </div>
                 </div>
 
-                <nav className="py-4">
-                    {navItems.map((item, index) => (
-                        <div className="px-4 py-2" key={index}>
+                <div className="p-2 flex-grow">
+                    <div className="space-y-1">
+                        {navItems.map((item, index) => (
                             <Link
+                                key={index}
                                 href={route(item.route)}
-                                className="flex items-center px-4 py-2 rounded hover:bg-gray-100"
-                                onClick={() => setMobileMenuOpen(false)}
+                                className={`flex items-center px-4 py-3 rounded-lg transition-all ${
+                                    route().current(item.route)
+                                        ? "bg-blue-700 text-white font-medium shadow-md"
+                                        : "text-blue-100 hover:bg-blue-700/50"
+                                }`}
                             >
                                 {item.icon}
                                 {item.text}
                             </Link>
-                        </div>
-                    ))}
-                </nav>
+                        ))}
+                    </div>
+                </div>
 
-                <div className="mt-auto p-4 border-t">
+                <div className="p-4 border-t border-blue-700 bg-blue-900">
+                    <div className="flex items-center mb-2">
+                        <div className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center mr-2">
+                            {auth.user.name.charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                            <p className="text-sm font-semibold text-white">{auth.user.name}</p>
+                            <p className="text-xs text-blue-200">{auth.user.email}</p>
+                        </div>
+                    </div>
                     <button
                         onClick={() => setShowLogoutConfirm(true)}
-                        className="w-full text-left px-4 py-2 rounded hover:bg-gray-100"
+                        className="w-full bg-blue-700 hover:bg-blue-600 text-white rounded-lg py-2 mt-2 transition-colors flex items-center justify-center"
                     >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                            />
+                        </svg>
                         Logout
                     </button>
                 </div>
-
-                {showLogoutConfirm && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                        <div className="bg-white p-6 rounded-lg shadow-lg w-80">
-                            <h2 className="text-lg font-semibold mb-4">
-                                Konfirmasi Logout
-                            </h2>
-                            <p className="mb-4">
-                                Apakah Anda yakin ingin keluar?
-                            </p>
-                            <div className="flex justify-end space-x-2">
-                                <button
-                                    onClick={() => setShowLogoutConfirm(false)}
-                                    className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-                                >
-                                    Batal
-                                </button>
-                                <Link
-                                    href={route("logout")}
-                                    method="post"
-                                    as="button"
-                                    className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                                >
-                                    Logout
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </div>
 
             {/* Main Content */}
-            <div className="flex-1">{children}</div>
+            <div className="flex-1 flex flex-col overflow-y-auto">
+                {/* Top Header - Desktop only */}
+                <div className="hidden md:flex justify-between items-center bg-white border-b shadow-sm p-4">
+                    <div className="flex items-center">
+                        <div className="bg-blue-900 text-white p-2 rounded-lg shadow-md mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
+                            </svg>
+                        </div>
+                        <h1 className="text-xl font-semibold text-gray-800">
+                            {route().current('dashboard') ? 'Dashboard' :
+                             route().current('ships.index') ? 'Data Kapal' :
+                             route().current('cargo-activities.index') ? 'Bongkar Muat' :
+                             route().current('logistics.index') ? 'Data Logistik' :
+                             route().current('risks.index') ? 'Analisis Risiko' :
+                             route().current('productions.index') ? 'Produksi' :
+                             route().current('reports.index') ? 'Generate Laporan' : 'Dashboard'}
+                        </h1>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                        <div className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                            <span className="animate-pulse mr-1">●</span>
+                            Online
+                        </div>
+                        <div className="relative group">
+                            <button className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-2 transition-colors">
+                                <div className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center">
+                                    {auth.user.name.charAt(0).toUpperCase()}
+                                </div>
+                                <div className="text-left">
+                                    <p className="text-sm font-medium text-gray-700">{auth.user.name}</p>
+                                    <p className="text-xs text-gray-500">{auth.user.email}</p>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div className="absolute right-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 invisible group-hover:visible transition-all opacity-0 group-hover:opacity-100 z-50">
+                                <Link
+                                    href={route('profile.edit')}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-t-lg"
+                                >
+                                    Profile Settings
+                                </Link>
+                                <button
+                                    onClick={() => setShowLogoutConfirm(true)}
+                                    className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-b-lg"
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Page Content */}
+                <div className="flex-1">
+                    {children}
+                </div>
+            </div>
+
+            {/* Logout Confirmation Modal */}
+            {showLogoutConfirm && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                    <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
+                        <div className="flex items-center justify-center mb-4 text-blue-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                            </svg>
+                        </div>
+                        <h3 className="text-xl font-bold text-center text-gray-800 mb-2">
+                            Konfirmasi Logout
+                        </h3>
+                        <p className="text-gray-600 text-center mb-6">
+                            Apakah Anda yakin ingin keluar dari sistem?
+                        </p>
+                        <div className="flex justify-center space-x-3">
+                            <button
+                                onClick={() => setShowLogoutConfirm(false)}
+                                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-800 transition-colors"
+                            >
+                                Batal
+                            </button>
+                            <Link
+                                href={route("logout")}
+                                method="post"
+                                as="button"
+                                className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white transition-colors"
+                            >
+                                Logout
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

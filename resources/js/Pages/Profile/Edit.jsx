@@ -1,39 +1,41 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import MainLayout from '@/Layouts/MainLayout';
 import { Head } from '@inertiajs/react';
 import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
+import PageHeader from '@/Components/PageHeader';
+import theme from '@/theme';
 
-export default function Edit({ mustVerifyEmail, status }) {
+export default function Edit({ auth, mustVerifyEmail, status }) {
     return (
-        <AuthenticatedLayout
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Profile
-                </h2>
-            }
-        >
-            <Head title="Profile" />
+        <MainLayout user={auth.user}>
+            <Head title="Profil Pengguna" />
 
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
+            <PageHeader
+                title="Profil Pengguna"
+                description="Kelola informasi profil, kata sandi, dan pengaturan akun Anda."
+                pattern="waves"
+            />
+
+            <div className="py-12 px-4 md:px-8 lg:px-12 bg-gray-50">
+                <div className="mx-auto max-w-3xl space-y-8">
+                    <div className={`bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-200`}>
                         <UpdateProfileInformationForm
                             mustVerifyEmail={mustVerifyEmail}
                             status={status}
-                            className="max-w-xl"
+                            className="space-y-6"
                         />
                     </div>
 
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                        <UpdatePasswordForm className="max-w-xl" />
+                    <div className={`bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-200`}>
+                        <UpdatePasswordForm className="space-y-6" />
                     </div>
 
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                        <DeleteUserForm className="max-w-xl" />
+                    <div className={`bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-200`}>
+                        <DeleteUserForm className="space-y-6" />
                     </div>
                 </div>
             </div>
-        </AuthenticatedLayout>
+        </MainLayout>
     );
 }

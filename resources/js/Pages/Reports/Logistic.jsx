@@ -1,10 +1,12 @@
-import { Head } from '@inertiajs/react';
+import { Head, router, usePage } from '@inertiajs/react';
 import MainLayout from '@/Layouts/MainLayout';
 import PageHeader from '@/Components/PageHeader';
 import Table from '@/Components/Table';
 import Button from '@/Components/Button';
 
 export default function LogisticReport({ logistics, reportType, reportDate, reportPeriod, managerName }) {
+  const { url: currentPath } = usePage();
+
   const columns = [
     {
       header: 'Nama Barang',
@@ -28,14 +30,39 @@ export default function LogisticReport({ logistics, reportType, reportDate, repo
     window.print();
   };
 
+  const handleDownload = (format) => {
+    const requestUrl = new URL(window.location.origin + currentPath);
+    requestUrl.searchParams.set('format', format);
+    
+    const targetRoute = requestUrl.pathname + requestUrl.search;
+
+    router.get(targetRoute, {}, {
+      preserveState: true,
+      preserveScroll: true,
+      onSuccess: (page) => {
+        if (page.props.flash && page.props.flash.report_url) {
+          window.open(page.props.flash.report_url, '_blank');
+        } else if (page.props.flash && page.props.flash.error) {
+          alert(`Error generating report: ${page.props.flash.error}`);
+        } else {
+          alert('Report generation requested. If download does not start, the server may not have provided a download URL.');
+        }
+      },
+      onError: (errors) => {
+        const firstErrorKey = Object.keys(errors)[0];
+        const errorMessage = firstErrorKey ? errors[firstErrorKey] : 'Unknown error.';
+        alert(`Failed to request downloadable report: ${errorMessage}`);
+        console.error("Report download request errors:", errors);
+      }
+    });
+  };
+
   const handleDownloadPDF = () => {
-    // This would be implemented with a PDF library
-    alert('Download PDF functionality would be implemented here');
+    handleDownload('pdf');
   };
 
   const handleDownloadExcel = () => {
-    // This would be implemented with an Excel library
-    alert('Download Excel functionality would be implemented here');
+    handleDownload('excel');
   };
 
   return (

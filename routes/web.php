@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/productions/{production}', [ProductionController::class, 'destroy'])->name('productions.destroy');
 
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
-    Route::get('/reports/logistics', [ReportController::class, 'generateLogisticReport'])->name('reports.logistics');
+    Route::get('/reports/logistic', [ReportController::class, 'generateLogisticReport'])->name('reports.logistic');
     Route::get('/reports/ships', [ReportController::class, 'generateShipReport'])->name('reports.ships');
     Route::get('/reports/risks', [ReportController::class, 'generateRiskReport'])->name('reports.risks');
 });
