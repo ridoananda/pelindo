@@ -21,7 +21,7 @@ export default function GuestLayout({ children }) {
             <div className="max-w-md w-full bg-white rounded-xl shadow-2xl overflow-hidden relative z-10">
                 <div className="bg-gradient-to-r from-blue-800 to-blue-700 p-5 flex flex-col items-center">
                     <Link href="/" className="block mb-2">
-                        <img src="/logo.png" alt="Pelindo Logo" className="h-24 w-24 rounded-full border-4 border-white/30 shadow-lg" />
+                        <img src="/logo.png" alt="Pelindo Logo" className="h-20 w-full" />
                     </Link>
                     <h1 className="text-white text-xl font-bold">PT. Pelabuhan Indonesia</h1>
                     <p className="text-blue-200 text-sm">Cabang Sibolga</p>

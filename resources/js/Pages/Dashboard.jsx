@@ -183,7 +183,7 @@ export default function Dashboard({
                                             <img
                                                 src="/logo.png"
                                                 alt="Pelindo Logo"
-                                                className="w-32 h-32 mx-auto mb-4 rounded-full border-4 border-white/20"
+                                                className="h-14 w-full mx-auto mb-4"
                                             />
                                             <h3 className="text-xl font-bold text-white mb-1">PT. Pelabuhan Indonesia</h3>
                                             <p className="text-blue-200">Cabang Sibolga</p>

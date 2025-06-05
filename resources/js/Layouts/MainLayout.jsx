@@ -166,7 +166,7 @@ export default function MainLayout({ children }) {
             {/* Mobile Menu Button */}
             <div className="md:hidden bg-gradient-to-r from-blue-900 to-blue-800 p-4 flex justify-between items-center shadow-md">
                 <div className="flex items-center">
-                    <img src="/logo.png" className="w-10 h-10 rounded-full border-2 border-white shadow-lg" />
+                    <img src="/logo.png" className="h-12 w-full" />
                     <div className="ml-2">
                         <h2 className="text-sm font-semibold text-white">
                             PT. Pelabuhan Indonesia
@@ -205,9 +205,9 @@ export default function MainLayout({ children }) {
             <div
                 className={`md:w-1/5 bg-gradient-to-b from-blue-900 to-blue-800 text-white shadow-xl z-10 relative flex flex-col ${mobileMenuOpen ? 'flex' : 'hidden'} md:flex`}
             >
-                <div className="p-5 border-b border-blue-700 flex items-center space-x-3">
-                    <img src="/logo.png" className="w-12 h-12 rounded-full border-2 border-white shadow-lg" />
-                    <div>
+                <div className="p-5 border-b border-blue-700 flex flex-col">
+                    <img src="/logo.png" className="h-12" />
+                    <div className="mt-2">
                         <h2 className="font-bold text-lg text-white">PT. Pelindo</h2>
                         <p className="text-sm text-blue-200">Cabang Sibolga</p>
                     </div>
