@@ -161,7 +161,7 @@ export default function ShipsIndex({ ships }) {
         actions={
           <Button
             onClick={openAddModal}
-            className="bg-white text-blue-800 hover:bg-blue-100 transition-colors shadow-md"
+            className="bg-white !text-blue-800 hover:bg-blue-100 hover:!text-white transition-colors shadow-md"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
