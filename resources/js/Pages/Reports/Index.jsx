@@ -5,7 +5,7 @@ import MainLayout from '@/Layouts/MainLayout';
 import PageHeader from '@/Components/PageHeader';
 import Button from '@/Components/Button';
 import theme from '@/theme';
-import { FaFileInvoice, FaShip, FaShieldAlt, FaCalendarAlt, FaFilter, FaPrint } from 'react-icons/fa';
+import { FaFileInvoice, FaShip, FaShieldAlt, FaCalendarAlt, FaFilter, FaPrint, FaBoxes } from 'react-icons/fa';
 
 export default function ReportsIndex({ auth }) {
   const { flash } = usePage().props;
@@ -21,6 +21,7 @@ export default function ReportsIndex({ auth }) {
   const reportTypes = [
     { key: 'logistic', name: 'Laporan Logistik', icon: <FaFileInvoice className="mr-2" />, color: theme.colors.primary[600] },
     { key: 'ships', name: 'Laporan Aktivitas Kapal', icon: <FaShip className="mr-2" />, color: theme.colors.secondary[600] },
+    { key: 'cargo-activities', name: 'Laporan Bongkar Muat', icon: <FaBoxes className="mr-2" />, color: theme.colors.accent.info },
     { key: 'risks', name: 'Laporan Analisis Risiko', icon: <FaShieldAlt className="mr-2" />, color: theme.colors.accent.warning },
   ];
 
@@ -50,7 +51,7 @@ export default function ReportsIndex({ auth }) {
     }
 
     const routeName = `reports.${reportType}`;
-    
+
     get(route(routeName, queryParams), {
       preserveState: true,
       preserveScroll: true,
@@ -70,7 +71,7 @@ export default function ReportsIndex({ auth }) {
       },
     });
   };
-  
+
   useEffect(() => {
     if (flash && flash.report_url) {
         const reportName = reportTypes.find(rt => rt.key === reportType)?.name || "Laporan";
@@ -87,7 +88,7 @@ export default function ReportsIndex({ auth }) {
 
   const yearOptions = Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - i);
   const monthOptions = [
-    { value: "", label: "Semua Bulan" }, { value: "1", label: "Januari" }, { value: "2", label: "Februari" }, 
+    { value: "", label: "Semua Bulan" }, { value: "1", label: "Januari" }, { value: "2", label: "Februari" },
     { value: "3", label: "Maret" }, { value: "4", label: "April" }, { value: "5", label: "Mei" },
     { value: "6", label: "Juni" }, { value: "7", label: "Juli" }, { value: "8", label: "Agustus" },
     { value: "9", label: "September" }, { value: "10", label: "Oktober" }, { value: "11", label: "November" },
@@ -121,7 +122,7 @@ export default function ReportsIndex({ auth }) {
                   style={{ '--report-color': rt.color }}
                   className={`flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2
                     ${reportType === rt.key
-                      ? 'text-white shadow-md' 
+                      ? 'text-white shadow-md'
                       : 'text-gray-700 bg-gray-100 hover:bg-gray-200 focus:ring-gray-400'
                     }
                     ${reportType === rt.key ? 'bg-[var(--report-color)] hover:bg-opacity-90 focus:ring-[var(--report-color)]' : ''}
@@ -167,7 +168,7 @@ export default function ReportsIndex({ auth }) {
                     {errors.year && <p className="text-xs text-red-500 mt-1">{errors.year}</p>}
                     {errors.month && <p className="text-xs text-red-500 mt-1">{errors.month}</p>}
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Format Laporan</label>
                   <div className="flex space-x-3">
@@ -188,10 +189,10 @@ export default function ReportsIndex({ auth }) {
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex justify-end pt-4">
-                <Button 
-                    type="submit" 
+                <Button
+                    type="submit"
                     disabled={processing}
                     className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105"
                     icon={<FaPrint />}
@@ -216,7 +217,7 @@ export default function ReportsIndex({ auth }) {
                     <p><strong>Parameter:</strong> {Object.entries(generatedReport.params).map(([key, value]) => `${key}: ${value}`).join(', ')}</p>
                 )}
                 <Button
-                    onClick={() => { 
+                    onClick={() => {
                         if (generatedReport && generatedReport.url) {
                             const link = document.createElement('a');
                             link.href = generatedReport.url;
@@ -238,7 +239,7 @@ export default function ReportsIndex({ auth }) {
             </div>
           </div>
         )}
-        
+
         {flash && flash.error && (
             <div className="mt-6 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative" role="alert">
                 <strong className="font-bold">Error!</strong>

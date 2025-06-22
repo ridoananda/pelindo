@@ -37,6 +37,7 @@ Route::middleware(['auth', 'role:operator,manager'])->group(function () {
     Route::get('/reports/logistic', [ReportController::class, 'generateLogisticReport'])->name('reports.logistic');
     Route::get('/reports/ships', [ReportController::class, 'generateShipReport'])->name('reports.ships');
     Route::get('/reports/risks', [ReportController::class, 'generateRiskReport'])->name('reports.risks');
+    Route::get('/reports/cargo-activities', [ReportController::class, 'generateCargoActivityReport'])->name('reports.cargo-activities');
 });
 
 // Routes accessible only by operators

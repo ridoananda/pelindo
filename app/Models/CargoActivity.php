@@ -12,9 +12,12 @@ class CargoActivity extends Model
     protected $fillable = [
         'ship_name',
         'type',
+        'cargo_type',
         'quantity',
+        'unit',
         'operator',
         'time',
         'status',
+        'notes',
     ];
 }

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Head, router } from '@inertiajs/react';
 import { useForm } from '@inertiajs/react';
 import MainLayout from '@/Layouts/MainLayout';
@@ -8,16 +8,17 @@ import Button from '@/Components/Button';
 import Modal from '@/Components/Modal';
 import theme from '@/theme'; // Assuming your theme file is here
 
-export default function CargoActivitiesIndex({ cargoActivities }) {
+export default function CargoActivitiesIndex({ cargoActivities, filters = {} }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [editingActivity, setEditingActivity] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filterStatus, setFilterStatus] = useState('Semua');
+  const [searchTerm, setSearchTerm] = useState(filters.search || '');
+  const [filterStatus, setFilterStatus] = useState(filters.status || 'Semua');
+  const [isFiltering, setIsFiltering] = useState(false);
 
   const { data, setData, post, put, errors, reset, processing } = useForm({
     ship_name: '',
-    type: '', // e.g., 'Bongkar', 'Muat'
+    type: 'Bongkar', // e.g., 'Bongkar', 'Muat'
     cargo_type: '', // e.g., 'Kontainer', 'Curah Kering', 'Curah Cair'
     quantity: '',
     unit: 'Ton', // e.g., 'Ton', 'TEUs', 'Unit'
@@ -26,6 +27,24 @@ export default function CargoActivitiesIndex({ cargoActivities }) {
     status: 'Dalam Proses', // e.g., 'Dalam Proses', 'Selesai', 'Tertunda'
     notes: '',
   });
+
+    // Update filters with debounce
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setIsFiltering(true);
+      router.get(route('cargo-activities.index'),
+        { search: searchTerm, status: filterStatus !== 'Semua' ? filterStatus : '' },
+        {
+          preserveState: true,
+          replace: true,
+          only: ['cargoActivities'],
+          onFinish: () => setIsFiltering(false)
+        }
+      );
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm, filterStatus]);
 
   const statusColors = {
     'Selesai': 'bg-green-100 text-green-800',
@@ -78,19 +97,8 @@ export default function CargoActivitiesIndex({ cargoActivities }) {
     },
   ];
 
-  const filteredActivities = useMemo(() => {
-    return cargoActivities.filter(activity => {
-      const matchesSearch = 
-        activity.ship_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        activity.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        activity.cargo_type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        activity.operator.toLowerCase().includes(searchTerm.toLowerCase());
-      
-      const matchesStatus = filterStatus === 'Semua' || activity.status === filterStatus;
-      
-      return matchesSearch && matchesStatus;
-    });
-  }, [cargoActivities, searchTerm, filterStatus]);
+    // Since filtering is now done server-side, we can directly use cargoActivities
+  const filteredActivities = cargoActivities;
 
   const openAddModal = () => {
     reset();
@@ -166,7 +174,7 @@ export default function CargoActivitiesIndex({ cargoActivities }) {
         description="Kelola semua aktivitas bongkar muat barang di pelabuhan."
         pattern="waves"
         actions={
-          <Button 
+          <Button
             onClick={openAddModal}
             className="bg-white !text-blue-800 hover:bg-blue-100 hover:!text-white transition-colors shadow-md"
           >
@@ -188,8 +196,8 @@ export default function CargoActivitiesIndex({ cargoActivities }) {
                     key={status}
                     onClick={() => setFilterStatus(status)}
                     className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                      filterStatus === status 
-                        ? 'bg-blue-700 text-white' 
+                      filterStatus === status
+                        ? 'bg-blue-700 text-white'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }`}
                   >
@@ -197,7 +205,7 @@ export default function CargoActivitiesIndex({ cargoActivities }) {
                   </button>
                 ))}
               </div>
-              
+
               <div className="relative w-full md:w-1/3">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -214,15 +222,23 @@ export default function CargoActivitiesIndex({ cargoActivities }) {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-xl border border-gray-200">
+            <div className="overflow-hidden rounded-xl border border-gray-200 relative">
+              {isFiltering && (
+                <div className="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-10">
+                  <div className="flex items-center space-x-2">
+                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+                    <span>Mencari...</span>
+                  </div>
+                </div>
+              )}
             <Table
               columns={columns}
                 data={filteredActivities}
               actions={(row) => (
                 <div className="flex justify-end space-x-2">
-                    <Button 
-                      variant="white" 
-                      size="sm" 
+                    <Button
+                      variant="white"
+                      size="sm"
                       onClick={() => openEditModal(row)}
                       className="border border-gray-300 hover:bg-gray-100"
                     >
@@ -231,9 +247,9 @@ export default function CargoActivitiesIndex({ cargoActivities }) {
                       </svg>
                     Edit
                   </Button>
-                    <Button 
-                      variant="danger" 
-                      size="sm" 
+                    <Button
+                      variant="danger"
+                      size="sm"
                       onClick={() => handleDelete(row)}
                       className="bg-red-600 text-white hover:bg-red-700"
                     >
@@ -386,8 +402,8 @@ export default function CargoActivitiesIndex({ cargoActivities }) {
             <Button variant="white" onClick={closeModal} className="border border-gray-300">
               Batal
             </Button>
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               disabled={processing}
               className="bg-blue-700 hover:bg-blue-800 text-white"
             >

@@ -22,7 +22,7 @@ export default function Table({ columns, data, actions }) {
                 {columns.map((column, colIndex) => (
                   <td key={colIndex} className="px-4 md:px-6 py-4 text-sm whitespace-nowrap overflow-hidden text-ellipsis">
                     <div className="max-w-[150px] md:max-w-none overflow-hidden text-ellipsis">
-                      {column.render ? column.render(row) : row[column.accessor]}
+                      {column.cell ? column.cell(row[column.accessor], row) : row[column.accessor]}
                     </div>
                   </td>
                 ))}

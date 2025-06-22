@@ -38,13 +38,10 @@ class RiskReportExport implements FromCollection, WithHeadings, ShouldAutoSize, 
         // atau struktur yang lebih kompleks jika perlu merepresentasikan kedua tabel dari Risk.jsx secara berbeda.
         return [
             $risk->id,
-            $risk->type, // Asumsi 'type' adalah 'Jenis Risiko'
+            $risk->type,
             $risk->impact,
             $risk->status,
             $risk->recommendation,
-            $risk->description, // Jika tersedia langsung pada model Risk untuk insiden
-            // $risk->report_date, // Jika tersedia untuk insiden
-            // $risk->recommended_action, // Jika tersedia untuk insiden
             $risk->created_at ? $risk->created_at->setTimezone('Asia/Jakarta')->format('Y-m-d H:i:s') . ' WIB' : '',
             $risk->updated_at ? $risk->updated_at->setTimezone('Asia/Jakarta')->format('Y-m-d H:i:s') . ' WIB' : '',
         ];
@@ -57,13 +54,10 @@ class RiskReportExport implements FromCollection, WithHeadings, ShouldAutoSize, 
             'ID',
             'Jenis Risiko',
             'Dampak',
-            'Status',
+            'Tingkat Risiko',
             'Rekomendasi',
-            'Deskripsi',      // Untuk deskripsi insiden
-            // 'Tanggal Laporan',   // Untuk tanggal laporan insiden
-            // 'Tindakan yang Direkomendasikan', // Untuk tindakan yang direkomendasikan insiden
             'Dibuat Pada',
             'Diperbarui Pada',
         ];
     }
-} 
+}

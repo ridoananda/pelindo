@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('cargo_activities', function (Blueprint $table) {
             $table->id();
             $table->string('ship_name');
-            $table->string('type');
+            $table->string('type'); // Bongkar, Muat
+            $table->string('cargo_type'); // Kontainer, Curah Kering, etc.
             $table->string('quantity');
+            $table->string('unit')->default('Ton'); // Ton, TEUs, Unit, etc.
             $table->string('operator');
             $table->time('time');
-            $table->enum('status', ['Selesai', 'Dalam proses', 'Tertunda atau bermasalah']);
+            $table->enum('status', ['Dalam Proses', 'Selesai', 'Tertunda', 'Dibatalkan'])->default('Dalam Proses');
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

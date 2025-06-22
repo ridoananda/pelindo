@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Logistic;
 use App\Models\Ship;
 use App\Models\Risk;
+use App\Models\CargoActivity;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +14,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\LogisticReportExport;
 use App\Exports\ShipReportExport;
 use App\Exports\RiskReportExport;
+use App\Exports\CargoActivityExport;
 use Carbon\Carbon;
 
 class ReportController extends Controller
@@ -84,7 +86,7 @@ class ReportController extends Controller
             } elseif ($format === 'excel') {
                 Excel::store(new LogisticReportExport($logistics), $filePath, 'public');
             }
-            
+
             return redirect()->back()->with('flash', [
                 'report_url' => asset('storage/' . $filePath),
                 'message' => 'Laporan ' . ucfirst($format) . ' berhasil dibuat.',
@@ -134,7 +136,7 @@ class ReportController extends Controller
             $fileName = 'ship-activity-report-' . time() . '.' . $actualFormat;
             $directory = 'reports/ships';
             $filePath = $directory . '/' . $fileName;
-            
+
             if (!Storage::disk('public')->exists($directory)) {
                 Storage::disk('public')->makeDirectory($directory);
             }
@@ -145,7 +147,7 @@ class ReportController extends Controller
             } elseif ($format === 'excel') {
                 Excel::store(new ShipReportExport($ships), $filePath, 'public');
             }
-            
+
             return redirect()->back()->with('flash', [
                 'report_url' => asset('storage/' . $filePath),
                 'message' => 'Laporan ' . ucfirst($format) . ' berhasil dibuat.',
@@ -166,25 +168,41 @@ class ReportController extends Controller
             'format' => 'nullable|string|in:pdf,excel'
         ]);
 
-        $query = Risk::query();
+        $riskQuery = Risk::query();
+        $riskReportQuery = \App\Models\RiskReport::query();
 
         if ($request->filled('start_date') && $request->filled('end_date')) {
-            $query->whereBetween('created_at', [$request->start_date, $request->end_date]);
+            $riskQuery->whereBetween('created_at', [$request->start_date, $request->end_date]);
+            $riskReportQuery->whereBetween('report_date', [$request->start_date, $request->end_date]);
         } elseif ($request->filled('year')) {
-            $query->whereYear('created_at', $request->year);
+            $riskQuery->whereYear('created_at', $request->year);
+            $riskReportQuery->whereYear('report_date', $request->year);
             if ($request->filled('month')) {
-                $query->whereMonth('created_at', $request->month);
+                $riskQuery->whereMonth('created_at', $request->month);
+                $riskReportQuery->whereMonth('report_date', $request->month);
             }
         }
 
-        $risks = $query->latest()->get();
+        $risks = $riskQuery->latest()->get();
+        $riskReports = $riskReportQuery->latest()->get();
+
+        // Calculate risk statistics
+        $riskStats = [
+            'total' => $risks->count(),
+            'ekstrim' => $risks->where('status', 'Ekstrim')->count(),
+            'tinggi' => $risks->where('status', 'Tinggi')->count(),
+            'menengah' => $risks->where('status', 'Menengah')->count(),
+            'rendah' => $risks->where('status', 'Rendah')->count(),
+        ];
+
         $reportType = 'Laporan Analisis Risiko';
         $reportDate = now()->setTimezone('Asia/Jakarta')->locale('id')->translatedFormat('d F Y');
         $reportPeriod = $this->getReportPeriod($request);
 
         $data = [
             'risks' => $risks,
-            'riskReports' => $risks,
+            'riskReports' => $riskReports,
+            'riskStats' => $riskStats,
             'reportType' => $reportType,
             'reportDate' => $reportDate,
             'reportPeriod' => $reportPeriod,
@@ -207,14 +225,75 @@ class ReportController extends Controller
             } elseif ($format === 'excel') {
                 Excel::store(new RiskReportExport($risks), $filePath, 'public');
             }
-            
+
             return redirect()->back()->with('flash', [
                 'report_url' => asset('storage/' . $filePath),
                 'message' => 'Laporan ' . ucfirst($format) . ' berhasil dibuat.',
                 'file_name' => $fileName
             ]);
         }
-        
+
         return Inertia::render('Reports/Risk', $data);
+    }
+
+    public function generateCargoActivityReport(Request $request)
+    {
+        $request->validate([
+            'month' => 'nullable|integer|between:1,12',
+            'year' => 'nullable|integer|digits:4',
+            'start_date' => 'nullable|date',
+            'end_date' => 'nullable|date|after_or_equal:start_date',
+            'format' => 'nullable|string|in:pdf,excel'
+        ]);
+
+        $query = CargoActivity::query();
+
+        if ($request->filled('start_date') && $request->filled('end_date')) {
+            $query->whereBetween('time', [$request->start_date, $request->end_date]);
+        } elseif ($request->filled('year')) {
+            $query->whereYear('time', $request->year);
+            if ($request->filled('month')) {
+                $query->whereMonth('time', $request->month);
+            }
+        }
+
+        $cargoActivities = $query->latest()->get();
+        $reportType = 'Laporan Aktivitas Bongkar Muat';
+        $reportDate = now()->setTimezone('Asia/Jakarta')->locale('id')->translatedFormat('d F Y');
+        $reportPeriod = $this->getReportPeriod($request);
+
+        $data = [
+            'cargoActivities' => $cargoActivities,
+            'reportType' => $reportType,
+            'reportDate' => $reportDate,
+            'reportPeriod' => $reportPeriod,
+        ];
+
+        if ($request->filled('format')) {
+            $format = $request->format;
+            $actualFormat = $format === 'excel' ? 'xlsx' : $format;
+            $fileName = 'cargo-activity-report-' . time() . '.' . $actualFormat;
+            $directory = 'reports/cargo-activities';
+            $filePath = $directory . '/' . $fileName;
+
+            if (!Storage::disk('public')->exists($directory)) {
+                Storage::disk('public')->makeDirectory($directory);
+            }
+
+            if ($format === 'pdf') {
+                $pdf = Pdf::loadView('reports.cargo_activity_pdf', $data);
+                Storage::disk('public')->put($filePath, $pdf->output());
+            } elseif ($format === 'excel') {
+                Excel::store(new CargoActivityExport($cargoActivities), $filePath, 'public');
+            }
+
+            return redirect()->back()->with('flash', [
+                'report_url' => asset('storage/' . $filePath),
+                'message' => 'Laporan ' . ucfirst($format) . ' berhasil dibuat.',
+                'file_name' => $fileName
+            ]);
+        }
+
+        return Inertia::render('Reports/CargoActivity', $data);
     }
 }
