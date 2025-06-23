@@ -36,7 +36,7 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
   const [editingAssessment, setEditingAssessment] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterJob, setFilterJob] = useState('Semua');
-  const [activeTab, setActiveTab] = useState('assessments'); // 'assessments' or 'analysis'
+  const [activeTab, setActiveTab] = useState('analysis'); // Changed from 'assessments' to 'analysis'
 
   const { data, setData, post, put, errors, reset, processing } = useForm({
     respondent_name: '',
@@ -254,17 +254,12 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
       <Head title="FMEA Analysis - Analisis Risiko" />
 
       <PageHeader
-        title="FMEA (Failure Mode and Effects Analysis)"
-        description="Analisis komprehensif risiko operasional pelabuhan menggunakan metode FMEA dengan pendekatan Risk Priority Number (RPN)"
-        pattern="shipWheel"
-        actions={
-          <Button onClick={openAddModal} className="bg-white !text-blue-800 hover:!bg-blue-100 hover:text-white transition-colors shadow-md">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-            Tambah Assessment
-          </Button>
-        }
+        title="Manajemen Risiko"
+        subtitle="Kelola dan pantau risiko operasional pelabuhan"
+        breadcrumb={[
+          { label: 'Dashboard', href: '/dashboard' },
+          { label: 'Risiko', current: true },
+        ]}
       />
 
       <div className="p-8 bg-gray-50">
@@ -298,16 +293,6 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
           <div className="border-b border-gray-200">
             <nav className="flex space-x-8 px-6">
               <button
-                onClick={() => setActiveTab('assessments')}
-                className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === 'assessments'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-              >
-                Data Penilaian Responden
-              </button>
-              <button
                 onClick={() => setActiveTab('analysis')}
                 className={`py-4 px-1 border-b-2 font-medium text-sm ${
                   activeTab === 'analysis'
@@ -321,222 +306,156 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
           </div>
 
           <div className="p-6">
-            {activeTab === 'assessments' ? (
-              // Assessment Data Table
-              <>
-                <h3 className="text-xl font-semibold text-gray-800 mb-1">Data Penilaian Responden</h3>
-                <p className="text-sm text-gray-500 mb-4">Kumpulan data penilaian risiko dari berbagai responden</p>
+            {/* Analysis Summary Table */}
+            <>
+              <h3 className="text-xl font-semibold text-gray-800 mb-1">Hasil Analisis FMEA</h3>
+              <p className="text-sm text-gray-500 mb-4">Ringkasan analisis risiko berdasarkan rata-rata penilaian responden</p>
 
-                <div className="flex flex-col md:flex-row justify-between md:items-center mb-4 space-y-3 md:space-y-0">
-                  <div className="flex space-x-3">
-                    <select
-                      value={filterJob}
-                      onChange={(e) => setFilterJob(e.target.value)}
-                      className="py-2 pl-3 pr-8 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm text-sm"
-                    >
-                      <option value="Semua">Semua Jabatan</option>
-                      <option value="Manajer Bistek Operasional">Manajer Bistek Operasional</option>
-                      <option value="Petugas Lapangan Operasional">Petugas Lapangan Operasional</option>
-                    </select>
+              <div className="mb-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                <h4 className="font-bold text-blue-900 mb-3 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Keterangan Metode FMEA
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                  <div className="bg-white p-3 rounded-md border-l-4 border-blue-500">
+                    <strong className="text-blue-900">Severity (S):</strong>
+                    <p className="text-blue-800 mt-1">Seberapa parah dampak jika risiko terjadi</p>
                   </div>
-
-                  <div className="relative w-full md:w-2/5">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                      </svg>
-                    </div>
-                    <input
-                      type="text"
-                      placeholder="Cari nama responden, kode risiko..."
-                      className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm"
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                    />
+                  <div className="bg-white p-3 rounded-md border-l-4 border-green-500">
+                    <strong className="text-green-900">Occurrence (O):</strong>
+                    <p className="text-green-800 mt-1">Seberapa sering risiko kemungkinan terjadi</p>
+                  </div>
+                  <div className="bg-white p-3 rounded-md border-l-4 border-orange-500">
+                    <strong className="text-orange-900">Detection (D):</strong>
+                    <p className="text-orange-800 mt-1">Seberapa mudah risiko dapat dideteksi</p>
                   </div>
                 </div>
-
-                <div className="overflow-x-auto rounded-xl border border-gray-200">
-                  <Table
-                    columns={assessmentColumns}
-                    data={filteredAssessments}
-                    actions={(row) => (
-                      <div className="flex justify-end space-x-2">
-                        <Button
-                          variant="white"
-                          size="sm"
-                          onClick={() => openEditModal(row)}
-                          className="border border-gray-300 hover:bg-gray-100"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                          </svg>
-                          Edit
-                        </Button>
-                        <Button
-                          variant="danger"
-                          size="sm"
-                          onClick={() => handleDelete(row)}
-                          className="bg-red-600 text-white hover:bg-red-700"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                          </svg>
-                          Hapus
-                        </Button>
-                      </div>
-                    )}
-                  />
+                <div className="mt-3 text-center bg-white p-2 rounded-md">
+                  <strong className="text-gray-900">Risk Priority Number (RPN) = S × O × D</strong>
                 </div>
-              </>
-            ) : (
-              // Analysis Summary Table
-              <>
-                <h3 className="text-xl font-semibold text-gray-800 mb-1">Hasil Analisis FMEA</h3>
-                <p className="text-sm text-gray-500 mb-4">Ringkasan analisis risiko berdasarkan rata-rata penilaian responden</p>
+              </div>
 
-                <div className="mb-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
-                  <h4 className="font-bold text-blue-900 mb-3 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Keterangan Metode FMEA
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                    <div className="bg-white p-3 rounded-md border-l-4 border-blue-500">
-                      <strong className="text-blue-900">Severity (S):</strong>
-                      <p className="text-blue-800 mt-1">Seberapa parah dampak jika risiko terjadi</p>
-                    </div>
-                    <div className="bg-white p-3 rounded-md border-l-4 border-green-500">
-                      <strong className="text-green-900">Occurrence (O):</strong>
-                      <p className="text-green-800 mt-1">Seberapa sering risiko kemungkinan terjadi</p>
-                    </div>
-                    <div className="bg-white p-3 rounded-md border-l-4 border-orange-500">
-                      <strong className="text-orange-900">Detection (D):</strong>
-                      <p className="text-orange-800 mt-1">Seberapa mudah risiko dapat dideteksi</p>
-                    </div>
-                  </div>
-                  <div className="mt-3 text-center bg-white p-2 rounded-md">
-                    <strong className="text-gray-900">Risk Priority Number (RPN) = S × O × D</strong>
-                  </div>
-                </div>
+              <div className="overflow-x-auto rounded-xl border border-gray-200">
+                <Table columns={summaryColumns} data={fmeaAnalysisSummary || []} />
+              </div>
 
-                <div className="overflow-x-auto rounded-xl border border-gray-200">
-                  <Table columns={summaryColumns} data={fmeaAnalysisSummary || []} />
+              {/* High Risk Mitigation Section */}
+              <div className="mt-8 bg-gradient-to-r from-red-50 to-orange-50 rounded-xl border border-red-200 p-6">
+                <h4 className="text-xl font-bold text-red-900 mb-3 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 18.5c-.77.833.192 2.5 1.732 2.5z" />
+                  </svg>
+                  HASIL FMEA TINGKAT RISIKO OPERASIONAL PELABUHAN
+                </h4>
+                <p className="text-red-800 mb-6 font-medium">
+                  Hasil mitigasi risiko dengan tingkat risiko tertinggi berdasarkan perhitungan RPN.
+                </p>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full bg-white rounded-lg shadow-sm">
+                    <thead className="bg-red-600 text-white">
+                      <tr>
+                        <th className="px-4 py-3 text-left font-semibold text-sm">Kode</th>
+                        <th className="px-4 py-3 text-left font-semibold text-sm">Mode Kegagalan</th>
+                        <th className="px-4 py-3 text-center font-semibold text-sm">RPN</th>
+                        <th className="px-4 py-3 text-left font-semibold text-sm">Mitigasi Risiko</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-4 py-4">
+                          <span className="font-mono font-bold text-purple-700 bg-purple-100 px-2 py-1 rounded">M01</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-900">Data peti kemas tidak tercatat atau salah</td>
+                        <td className="px-4 py-4 text-center">
+                          <span className="font-bold text-red-600 bg-red-100 px-3 py-1 rounded-full">196,92</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-700 text-sm">
+                          Wajibkan semua petugas menerima dokumen muatan resmi dari pihak pelayaran sebelum kegiatan dimulai.
+                        </td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-4 py-4">
+                          <span className="font-mono font-bold text-purple-700 bg-purple-100 px-2 py-1 rounded">M04</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-900">Jadwal kapal tumpang tindih</td>
+                        <td className="px-4 py-4 text-center">
+                          <span className="font-bold text-orange-600 bg-orange-100 px-3 py-1 rounded-full">151,25</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-700 text-sm">
+                          Terapkan sistem jadwal berbasis shift harian tetap dan larangan perubahan mendadak tanpa persetujuan.
+                        </td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-4 py-4">
+                          <span className="font-mono font-bold text-purple-700 bg-purple-100 px-2 py-1 rounded">M05</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-900">Kapal pandu tidak tersedia saat dibutuhkan</td>
+                        <td className="px-4 py-4 text-center">
+                          <span className="font-bold text-orange-600 bg-orange-100 px-3 py-1 rounded-full">153,90</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-700 text-sm">
+                          Buat sistem giliran kerja dan siaga (standby) bagi kapal pandu di jam sibuk atau waktu padat sandar.
+                        </td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-4 py-4">
+                          <span className="font-mono font-bold text-purple-700 bg-purple-100 px-2 py-1 rounded">M07</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-900">Laporan tidak terkirim tepat waktu</td>
+                        <td className="px-4 py-4 text-center">
+                          <span className="font-bold text-orange-600 bg-orange-100 px-3 py-1 rounded-full">156,24</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-700 text-sm">
+                          Tetapkan jam batas pelaporan harian di SOP dan beri teguran resmi jika melewati batas waktu.
+                        </td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-4 py-4">
+                          <span className="font-mono font-bold text-purple-700 bg-purple-100 px-2 py-1 rounded">M08</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-900">Data kapal dan peti kemas tidak sinkron</td>
+                        <td className="px-4 py-4 text-center">
+                          <span className="font-bold text-red-600 bg-red-100 px-3 py-1 rounded-full">197,39</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-700 text-sm">
+                          Buat tim verifikasi gabungan dari divisi kapal dan logistik yang bertugas mencocokkan data sebelum bongkar.
+                        </td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-4 py-4">
+                          <span className="font-mono font-bold text-purple-700 bg-purple-100 px-2 py-1 rounded">M09</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-900">Kecelakaan kerja saat bongkar muat</td>
+                        <td className="px-4 py-4 text-center">
+                          <span className="font-bold text-orange-600 bg-orange-100 px-3 py-1 rounded-full">155,02</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-700 text-sm">
+                          Wajibkan briefing keselamatan sebelum shift dimulai dan pengawasan langsung oleh mandor tiap kegiatan.
+                        </td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-4 py-4">
+                          <span className="font-mono font-bold text-purple-700 bg-purple-100 px-2 py-1 rounded">M20</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-900">Informasi status kapal tidak seragam</td>
+                        <td className="px-4 py-4 text-center">
+                          <span className="font-bold text-orange-600 bg-orange-100 px-3 py-1 rounded-full">155,60</span>
+                        </td>
+                        <td className="px-4 py-4 text-gray-700 text-sm">
+                          Buat daftar istilah status kapal resmi dan adakan pelatihan setiap bulan untuk semua petugas operasional.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-              </>
-            )}
+              </div>
+            </>
           </div>
         </div>
       </div>
-
-      {/* Add/Edit Assessment Modal */}
-      <Modal show={isModalOpen} onClose={closeModal} title={isEditMode ? 'Edit Assessment' : 'Tambah Assessment Baru'} maxWidth="2xl">
-        <form onSubmit={handleSubmit} className="space-y-4 p-1">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Nama Responden</label>
-              <input
-                type="text"
-                value={data.respondent_name}
-                onChange={(e) => setData('respondent_name', e.target.value)}
-                className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5"
-                placeholder="Masukkan nama responden"
-              />
-              {errors.respondent_name && <p className="text-red-500 text-sm mt-1">{errors.respondent_name}</p>}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Jabatan Responden</label>
-              <select
-                value={data.respondent_job}
-                onChange={(e) => setData('respondent_job', e.target.value)}
-                className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5"
-              >
-                <option value="Manajer Bistek Operasional">Manajer Bistek Operasional</option>
-                <option value="Petugas Lapangan Operasional">Petugas Lapangan Operasional</option>
-              </select>
-              {errors.respondent_job && <p className="text-red-500 text-sm mt-1">{errors.respondent_job}</p>}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Kode Risiko</label>
-              <input
-                type="text"
-                value={data.risk_code}
-                onChange={(e) => setData('risk_code', e.target.value)}
-                className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5"
-                placeholder="Contoh: M01"
-              />
-              {errors.risk_code && <p className="text-red-500 text-sm mt-1">{errors.risk_code}</p>}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Deskripsi Risiko</label>
-              <input
-                type="text"
-                value={data.risk_description}
-                onChange={(e) => setData('risk_description', e.target.value)}
-                className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5"
-                placeholder="Deskripsi risiko"
-              />
-              {errors.risk_description && <p className="text-red-500 text-sm mt-1">{errors.risk_description}</p>}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Severity (1-10)</label>
-              <input
-                type="number"
-                min="1"
-                max="10"
-                value={data.severity}
-                onChange={(e) => setData('severity', parseInt(e.target.value))}
-                className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5"
-              />
-              {errors.severity && <p className="text-red-500 text-sm mt-1">{errors.severity}</p>}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Occurrence (1-10)</label>
-              <input
-                type="number"
-                min="1"
-                max="10"
-                value={data.occurrence}
-                onChange={(e) => setData('occurrence', parseInt(e.target.value))}
-                className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5"
-              />
-              {errors.occurrence && <p className="text-red-500 text-sm mt-1">{errors.occurrence}</p>}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Detection (1-10)</label>
-              <input
-                type="number"
-                min="1"
-                max="10"
-                value={data.detection}
-                onChange={(e) => setData('detection', parseInt(e.target.value))}
-                className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5"
-              />
-              {errors.detection && <p className="text-red-500 text-sm mt-1">{errors.detection}</p>}
-            </div>
-          </div>
-
-          <div className="flex justify-end space-x-3 pt-4">
-            <Button type="button" variant="secondary" onClick={closeModal}>
-              Batal
-            </Button>
-            <Button type="submit" disabled={processing}>
-              {processing ? 'Menyimpan...' : (isEditMode ? 'Perbarui' : 'Simpan')}
-            </Button>
-          </div>
-        </form>
-      </Modal>
     </MainLayout>
   );
 }
