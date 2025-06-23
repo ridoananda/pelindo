@@ -127,6 +127,7 @@ export default function MainLayout({ children }) {
                     </svg>
                 ),
             },
+
             {
                 text: "Generate Laporan",
                 route: "reports.index",

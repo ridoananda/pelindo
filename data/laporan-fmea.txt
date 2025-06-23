@@ -1,0 +1,350 @@
+Berikut adalah daftar semua data dari dokumen dalam bentuk list:
+
+### Daftar Responden dan Nilai FMEA:
+1. Subiyanto, Manajer Bistek Operasional, M01, Severity: 6, Occurrence: 8, Detection: 6
+2. Subiyanto, Manajer Bistek Operasional, M02, Severity: 3, Occurrence: 6, Detection: 4
+3. Subiyanto, Manajer Bistek Operasional, M03, Severity: 9, Occurrence: 3, Detection: 3
+4. Subiyanto, Manajer Bistek Operasional, M04, Severity: 5, Occurrence: 8, Detection: 6
+5. Subiyanto, Manajer Bistek Operasional, M05, Severity: 5, Occurrence: 6, Detection: 3
+6. Subiyanto, Manajer Bistek Operasional, M06, Severity: 7, Occurrence: 7, Detection: 5
+7. Subiyanto, Manajer Bistek Operasional, M07, Severity: 5, Occurrence: 8, Detection: 4
+8. Subiyanto, Manajer Bistek Operasional, M08, Severity: 7, Occurrence: 7, Detection: 8
+9. Subiyanto, Manajer Bistek Operasional, M09, Severity: 10, Occurrence: 4, Detection: 6
+10. Subiyanto, Manajer Bistek Operasional, M10, Severity: 9, Occurrence: 8, Detection: 4
+11. Subiyanto, Manajer Bistek Operasional, M11, Severity: 6, Occurrence: 6, Detection: 5
+12. Subiyanto, Manajer Bistek Operasional, M12, Severity: 7, Occurrence: 5, Detection: 5
+13. Subiyanto, Manajer Bistek Operasional, M13, Severity: 5, Occurrence: 6, Detection: 4
+14. Subiyanto, Manajer Bistek Operasional, M14, Severity: 6, Occurrence: 6, Detection: 6
+15. Subiyanto, Manajer Bistek Operasional, M15, Severity: 6, Occurrence: 3, Detection: 5
+16. Subiyanto, Manajer Bistek Operasional, M16, Severity: 5, Occurrence: 7, Detection: 5
+17. Subiyanto, Manajer Bistek Operasional, M17, Severity: 5, Occurrence: 4, Detection: 5
+18. Subiyanto, Manajer Bistek Operasional, M18, Severity: 6, Occurrence: 3, Detection: 5
+19. Subiyanto, Manajer Bistek Operasional, M19, Severity: 5, Occurrence: 7, Detection: 4
+20. Subiyanto, Manajer Bistek Operasional, M20, Severity: 7, Occurrence: 8, Detection: 5
+21. Samabudi Giawa, Petugas Lapangan Operasional, M01, Severity: 6, Occurrence: 7, Detection: 4
+22. Samabudi Giawa, Petugas Lapangan Operasional, M02, Severity: 3, Occurrence: 6, Detection: 5
+23. Samabudi Giawa, Petugas Lapangan Operasional, M03, Severity: 7, Occurrence: 4, Detection: 7
+24. Samabudi Giawa, Petugas Lapangan Operasional, M04, Severity: 7, Occurrence: 8, Detection: 2
+25. Samabudi Giawa, Petugas Lapangan Operasional, M05, Severity: 9, Occurrence: 7, Detection: 4
+26. Samabudi Giawa, Petugas Lapangan Operasional, M06, Severity: 8, Occurrence: 4, Detection: 3
+27. Samabudi Giawa, Petugas Lapangan Operasional, M07, Severity: 7, Occurrence: 5, Detection: 3
+28. Samabudi Giawa, Petugas Lapangan Operasional, M08, Severity: 6, Occurrence: 6, Detection: 8
+29. Samabudi Giawa, Petugas Lapangan Operasional, M09, Severity: 9, Occurrence: 4, Detection: 5
+30. Samabudi Giawa, Petugas Lapangan Operasional, M10, Severity: 5, Occurrence: 6, Detection: 5
+31. Samabudi Giawa, Petugas Lapangan Operasional, M11, Severity: 7, Occurrence: 6, Detection: 3
+32. Samabudi Giawa, Petugas Lapangan Operasional, M12, Severity: 4, Occurrence: 7, Detection: 2
+33. Samabudi Giawa, Petugas Lapangan Operasional, M13, Severity: 7, Occurrence: 5, Detection: 4
+34. Samabudi Giawa, Petugas Lapangan Operasional, M14, Severity: 5, Occurrence: 5, Detection: 5
+35. Samabudi Giawa, Petugas Lapangan Operasional, M15, Severity: 7, Occurrence: 3, Detection: 4
+36. Samabudi Giawa, Petugas Lapangan Operasional, M16, Severity: 5, Occurrence: 5, Detection: 6
+37. Samabudi Giawa, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 4, Detection: 5
+38. Samabudi Giawa, Petugas Lapangan Operasional, M18, Severity: 7, Occurrence: 3, Detection: 4
+39. Samabudi Giawa, Petugas Lapangan Operasional, M19, Severity: 6, Occurrence: 7, Detection: 4
+40. Samabudi Giawa, Petugas Lapangan Operasional, M20, Severity: 7, Occurrence: 7, Detection: 3
+41. Rosihin Anwar, Petugas Lapangan Operasional, M01, Severity: 7, Occurrence: 8, Detection: 5
+42. Rosihin Anwar, Petugas Lapangan Operasional, M02, Severity: 5, Occurrence: 4, Detection: 3
+43. Rosihin Anwar, Petugas Lapangan Operasional, M03, Severity: 8, Occurrence: 3, Detection: 5
+44. Rosihin Anwar, Petugas Lapangan Operasional, M04, Severity: 6, Occurrence: 5, Detection: 6
+45. Rosihin Anwar, Petugas Lapangan Operasional, M05, Severity: 7, Occurrence: 8, Detection: 5
+46. Rosihin Anwar, Petugas Lapangan Operasional, M06, Severity: 4, Occurrence: 9, Detection: 5
+47. Rosihin Anwar, Petugas Lapangan Operasional, M07, Severity: 8, Occurrence: 5, Detection: 4
+48. Rosihin Anwar, Petugas Lapangan Operasional, M08, Severity: 8, Occurrence: 6, Detection: 3
+49. Rosihin Anwar, Petugas Lapangan Operasional, M09, Severity: 9, Occurrence: 5, Detection: 5
+50. Rosihin Anwar, Petugas Lapangan Operasional, M10, Severity: 5, Occurrence: 6, Detection: 6
+51. Rosihin Anwar, Petugas Lapangan Operasional, M11, Severity: 7, Occurrence: 4, Detection: 2
+52. Rosihin Anwar, Petugas Lapangan Operasional, M12, Severity: 5, Occurrence: 5, Detection: 5
+53. Rosihin Anwar, Petugas Lapangan Operasional, M13, Severity: 5, Occurrence: 6, Detection: 2
+54. Rosihin Anwar, Petugas Lapangan Operasional, M14, Severity: 6, Occurrence: 5, Detection: 2
+55. Rosihin Anwar, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 5, Detection: 5
+56. Rosihin Anwar, Petugas Lapangan Operasional, M16, Severity: 5, Occurrence: 6, Detection: 4
+57. Rosihin Anwar, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 5, Detection: 5
+58. Rosihin Anwar, Petugas Lapangan Operasional, M18, Severity: 7, Occurrence: 4, Detection: 2
+59. Rosihin Anwar, Petugas Lapangan Operasional, M19, Severity: 6, Occurrence: 6, Detection: 5
+60. Rosihin Anwar, Petugas Lapangan Operasional, M20, Severity: 6, Occurrence: 7, Detection: 4
+61. Abner Sitompll, Petugas Lapangan Operasional, M01, Severity: 6, Occurrence: 7, Detection: 2
+62. Abner Sitompll, Petugas Lapangan Operasional, M02, Severity: 4, Occurrence: 4, Detection: 2
+63. Abner Sitompll, Petugas Lapangan Operasional, M03, Severity: 7, Occurrence: 3, Detection: 5
+64. Abner Sitompll, Petugas Lapangan Operasional, M04, Severity: 5, Occurrence: 4, Detection: 4
+65. Abner Sitompll, Petugas Lapangan Operasional, M05, Severity: 7, Occurrence: 6, Detection: 4
+66. Abner Sitompll, Petugas Lapangan Operasional, M06, Severity: 4, Occurrence: 3, Detection: 4
+67. Abner Sitompll, Petugas Lapangan Operasional, M07, Severity: 5, Occurrence: 6, Detection: 3
+68. Abner Sitompll, Petugas Lapangan Operasional, M08, Severity: 7, Occurrence: 6, Detection: 3
+69. Abner Sitompll, Petugas Lapangan Operasional, M09, Severity: 8, Occurrence: 4, Detection: 2
+70. Abner Sitompll, Petugas Lapangan Operasional, M10, Severity: 6, Occurrence: 5, Detection: 2
+71. Abner Sitompll, Petugas Lapangan Operasional, M11, Severity: 5, Occurrence: 2, Detection: 2
+72. Abner Sitompll, Petugas Lapangan Operasional, M12, Severity: 5, Occurrence: 5, Detection: 2
+73. Abner Sitompll, Petugas Lapangan Operasional, M13, Severity: 3, Occurrence: 7, Detection: 2
+74. Abner Sitompll, Petugas Lapangan Operasional, M14, Severity: 4, Occurrence: 6, Detection: 2
+75. Abner Sitompll, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 4, Detection: 4
+76. Abner Sitompll, Petugas Lapangan Operasional, M16, Severity: 6, Occurrence: 6, Detection: 5
+77. Abner Sitompll, Petugas Lapangan Operasional, M17, Severity: 6, Occurrence: 6, Detection: 5
+78. Abner Sitompll, Petugas Lapangan Operasional, M18, Severity: 6, Occurrence: 4, Detection: 4
+79. Abner Sitompll, Petugas Lapangan Operasional, M19, Severity: 5, Occurrence: 7, Detection: 5
+80. Abner Sitompll, Petugas Lapangan Operasional, M20, Severity: 6, Occurrence: 7, Detection: 4
+81. Hottand Hutagalung, Petugas Lapangan Operasional, M01, Severity: 7, Occurrence: 6, Detection: 5
+82. Hottand Hutagalung, Petugas Lapangan Operasional, M02, Severity: 3, Occurrence: 4, Detection: 1
+83. Hottand Hutagalung, Petugas Lapangan Operasional, M03, Severity: 6, Occurrence: 3, Detection: 4
+84. Hottand Hutagalung, Petugas Lapangan Operasional, M04, Severity: 6, Occurrence: 5, Detection: 5
+85. Hottand Hutagalung, Petugas Lapangan Operasional, M05, Severity: 7, Occurrence: 6, Detection: 4
+86. Hottand Hutagalung, Petugas Lapangan Operasional, M06, Severity: 3, Occurrence: 6, Detection: 5
+87. Hottand Hutagalung, Petugas Lapangan Operasional, M07, Severity: 8, Occurrence: 8, Detection: 2
+88. Hottand Hutagalung, Petugas Lapangan Operasional, M08, Severity: 8, Occurrence: 8, Detection: 2
+89. Hottand Hutagalung, Petugas Lapangan Operasional, M09, Severity: 10, Occurrence: 4, Detection: 5
+90. Hottand Hutagalung, Petugas Lapangan Operasional, M10, Severity: 6, Occurrence: 7, Detection: 2
+91. Hottand Hutagalung, Petugas Lapangan Operasional, M11, Severity: 4, Occurrence: 4, Detection: 1
+92. Hotland Hutagalung, Petugas Lapangan Operasional, M12, Severity: 5, Occurrence: 5, Detection: 2
+93. Hotland Hutagalung, Petugas Lapangan Operasional, M13, Severity: 4, Occurrence: 5, Detection: 3
+94. Hotland Hutagalung, Petugas Lapangan Operasional, M14, Severity: 5, Occurrence: 5, Detection: 3
+95. Hotland Hutagalung, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 5, Detection: 4
+96. Hotland Hutagalung, Petugas Lapangan Operasional, M16, Severity: 5, Occurrence: 5, Detection: 5
+97. Hotland Hutagalung, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 6, Detection: 4
+98. Hotland Hutagalung, Petugas Lapangan Operasional, M18, Severity: 6, Occurrence: 4, Detection: 4
+99. Hotland Hutagalung, Petugas Lapangan Operasional, M19, Severity: 5, Occurrence: 7, Detection: 3
+100. Hotland Hutagalung, Petugas Lapangan Operasional, M20, Severity: 6, Occurrence: 7, Detection: 4
+101. Yanuari Halawa, Petugas Lapangan Operasional, M01, Severity: 7, Occurrence: 6, Detection: 4
+102. Yanuari Halawa, Petugas Lapangan Operasional, M02, Severity: 3, Occurrence: 6, Detection: 5
+103. Yanuari Halawa, Petugas Lapangan Operasional, M03, Severity: 7, Occurrence: 4, Detection: 7
+104. Yanuari Halawa, Petugas Lapangan Operasional, M04, Severity: 7, Occurrence: 8, Detection: 2
+105. Yanuari Halawa, Petugas Lapangan Operasional, M05, Severity: 7, Occurrence: 6, Detection: 2
+106. Yanuari Halawa, Petugas Lapangan Operasional, M06, Severity: 8, Occurrence: 4, Detection: 3
+107. Yanuari Halawa, Petugas Lapangan Operasional, M07, Severity: 7, Occurrence: 5, Detection: 3
+108. Yanuari Halawa, Petugas Lapangan Operasional, M08, Severity: 7, Occurrence: 6, Detection: 3
+109. Yanuari Halawa, Petugas Lapangan Operasional, M09, Severity: 8, Occurrence: 3, Detection: 6
+110. Yanuari Halawa, Petugas Lapangan Operasional, M10, Severity: 6, Occurrence: 5, Detection: 2
+111. Yanuari Halawa, Petugas Lapangan Operasional, M11, Severity: 5, Occurrence: 2, Detection: 2
+112. Yanuari Halawa, Petugas Lapangan Operasional, M12, Severity: 5, Occurrence: 5, Detection: 2
+113. Yanuari Halawa, Petugas Lapangan Operasional, M13, Severity: 5, Occurrence: 5, Detection: 3
+114. Yanuari Halawa, Petugas Lapangan Operasional, M14, Severity: 5, Occurrence: 4, Detection: 4
+115. Yanuari Halawa, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 5, Detection: 5
+116. Yanuari Halawa, Petugas Lapangan Operasional, M16, Severity: 5, Occurrence: 6, Detection: 3
+117. Yanuari Halawa, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 5, Detection: 4
+118. Yanuari Halawa, Petugas Lapangan Operasional, M18, Severity: 7, Occurrence: 3, Detection: 4
+119. Yanuari Halawa, Petugas Lapangan Operasional, M19, Severity: 6, Occurrence: 8, Detection: 3
+120. Yanuari Halawa, Petugas Lapangan Operasional, M20, Severity: 6, Occurrence: 7, Detection: 4
+121. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M01, Severity: 7, Occurrence: 6, Detection: 4
+122. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M02, Severity: 3, Occurrence: 6, Detection: 5
+123. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M03, Severity: 7, Occurrence: 4, Detection: 7
+124. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M04, Severity: 10, Occurrence: 3, Detection: 8
+125. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M05, Severity: 7, Occurrence: 6, Detection: 8
+126. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M06, Severity: 8, Occurrence: 7, Detection: 10
+127. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M07, Severity: 4, Occurrence: 6, Detection: 10
+128. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M08, Severity: 8, Occurrence: 8, Detection: 2
+129. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M09, Severity: 10, Occurrence: 3, Detection: 5
+130. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M10, Severity: 6, Occurrence: 7, Detection: 2
+131. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M11, Severity: 4, Occurrence: 4, Detection: 1
+132. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M12, Severity: 5, Occurrence: 5, Detection: 2
+133. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M13, Severity: 5, Occurrence: 5, Detection: 3
+134. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M14, Severity: 5, Occurrence: 5, Detection: 3
+135. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M15, Severity: 5, Occurrence: 5, Detection: 5
+136. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M16, Severity: 7, Occurrence: 3, Detection: 4
+137. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 6, Detection: 4
+138. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M18, Severity: 7, Occurrence: 3, Detection: 4
+139. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M19, Severity: 6, Occurrence: 6, Detection: 5
+140. Gomgom Wisastro Ujung, Petugas Lapangan Operasional, M20, Severity: 6, Occurrence: 6, Detection: 4
+141. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M01, Severity: 6, Occurrence: 7, Detection: 6
+142. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M02, Severity: 3, Occurrence: 6, Detection: 4
+143. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M03, Severity: 9, Occurrence: 3, Detection: 3
+144. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M04, Severity: 5, Occurrence: 8, Detection: 6
+145. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M05, Severity: 5, Occurrence: 4, Detection: 2
+146. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M06, Severity: 4, Occurrence: 6, Detection: 5
+147. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M07, Severity: 8, Occurrence: 8, Detection: 2
+148. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M08, Severity: 7, Occurrence: 8, Detection: 2
+149. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M09, Severity: 10, Occurrence: 4, Detection: 4
+150. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M10, Severity: 6, Occurrence: 7, Detection: 2
+151. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M11, Severity: 5, Occurrence: 2, Detection: 2
+152. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M12, Severity: 5, Occurrence: 5, Detection: 2
+153. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M13, Severity: 4, Occurrence: 4, Detection: 4
+154. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M14, Severity: 4, Occurrence: 3, Detection: 3
+155. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 5, Detection: 2
+156. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M16, Severity: 6, Occurrence: 5, Detection: 5
+157. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 5, Detection: 5
+158. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M18, Severity: 6, Occurrence: 3, Detection: 3
+159. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M19, Severity: 5, Occurrence: 6, Detection: 4
+160. Jhonny Tua Sambaton, Petugas Lapangan Operasional, M20, Severity: 5, Occurrence: 8, Detection: 4
+161. Banje Gusra Panggabean, Petugas Lapangan Operasional, M01, Severity: 6, Occurrence: 8, Detection: 2
+162. Banje Gusra Panggabean, Petugas Lapangan Operasional, M02, Severity: 2, Occurrence: 5, Detection: 1
+163. Banje Gusra Panggabean, Petugas Lapangan Operasional, M03, Severity: 7, Occurrence: 2, Detection: 4
+164. Banje Gusra Panggabean, Petugas Lapangan Operasional, M04, Severity: 3, Occurrence: 5, Detection: 4
+165. Banje Gusra Panggabean, Petugas Lapangan Operasional, M05, Severity: 5, Occurrence: 7, Detection: 3
+166. Banje Gusra Panggabean, Petugas Lapangan Operasional, M06, Severity: 4, Occurrence: 5, Detection: 4
+167. Banje Gusra Panggabean, Petugas Lapangan Operasional, M07, Severity: 5, Occurrence: 7, Detection: 3
+168. Banje Gusra Panggabean, Petugas Lapangan Operasional, M08, Severity: 6, Occurrence: 7, Detection: 4
+169. Banje Gusra Panggabean, Petugas Lapangan Operasional, M09, Severity: 9, Occurrence: 3, Detection: 5
+170. Banje Gusra Panggabean, Petugas Lapangan Operasional, M10, Severity: 6, Occurrence: 7, Detection: 5
+171. Banje Gusra Panggabean, Petugas Lapangan Operasional, M11, Severity: 5, Occurrence: 4, Detection: 4
+172. Banje Gusra Panggabean, Petugas Lapangan Operasional, M12, Severity: 4, Occurrence: 3, Detection: 5
+173. Banje Gusra Panggabean, Petugas Lapangan Operasional, M13, Severity: 4, Occurrence: 5, Detection: 3
+174. Banje Gusra Panggabean, Petugas Lapangan Operasional, M14, Severity: 5, Occurrence: 5, Detection: 4
+175. Banje Gusra Panggabean, Petugas Lapangan Operasional, M15, Severity: 5, Occurrence: 4, Detection: 3
+176. Banje Gusra Panggabean, Petugas Lapangan Operasional, M16, Severity: 5, Occurrence: 6, Detection: 3
+177. Banje Gusra Panggabean, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 6, Detection: 5
+178. Banje Gusra Panggabean, Petugas Lapangan Operasional, M18, Severity: 7, Occurrence: 2, Detection: 4
+179. Banje Gusra Panggabean, Petugas Lapangan Operasional, M19, Severity: 5, Occurrence: 7, Detection: 4
+180. Banje Gusra Panggabean, Petugas Lapangan Operasional, M20, Severity: 6, Occurrence: 7, Detection: 3
+181. Minar Butar-Butar, Petugas Lapangan Operasional, M01, Severity: 6, Occurrence: 7, Detection: 4
+182. Minar Butar-Butar, Petugas Lapangan Operasional, M02, Severity: 4, Occurrence: 5, Detection: 4
+183. Minar Butar-Butar, Petugas Lapangan Operasional, M03, Severity: 7, Occurrence: 3, Detection: 2
+184. Minar Butar-Butar, Petugas Lapangan Operasional, M04, Severity: 9, Occurrence: 3, Detection: 5
+185. Minar Butar-Butar, Petugas Lapangan Operasional, M05, Severity: 7, Occurrence: 7, Detection: 4
+186. Minar Butar-Butar, Petugas Lapangan Operasional, M06, Severity: 6, Occurrence: 5, Detection: 3
+187. Minar Butar-Butar, Petugas Lapangan Operasional, M07, Severity: 7, Occurrence: 8, Detection: 4
+188. Minar Butar-Butar, Petugas Lapangan Operasional, M08, Severity: 7, Occurrence: 6, Detection: 5
+189. Minar Butar-Butar, Petugas Lapangan Operasional, M09, Severity: 9, Occurrence: 3, Detection: 6
+190. Minar Butar-Butar, Petugas Lapangan Operasional, M10, Severity: 7, Occurrence: 5, Detection: 4
+191. Minar Butar-Butar, Petugas Lapangan Operasional, M11, Severity: 7, Occurrence: 4, Detection: 4
+192. Minar Butar-Butar, Petugas Lapangan Operasional, M12, Severity: 6, Occurrence: 3, Detection: 4
+193. Minar Butar-Butar, Petugas Lapangan Operasional, M13, Severity: 3, Occurrence: 5, Detection: 4
+194. Minar Butar-Butar, Petugas Lapangan Operasional, M14, Severity: 5, Occurrence: 4, Detection: 4
+195. Minar Butar-Butar, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 3, Detection: 3
+196. Minar Butar-Butar, Petugas Lapangan Operasional, M16, Severity: 5, Occurrence: 7, Detection: 3
+197. Minar Butar-Butar, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 5, Detection: 5
+198. Minar Butar-Butar, Petugas Lapangan Operasional, M18, Severity: 7, Occurrence: 2, Detection: 2
+199. Minar Butar-Butar, Petugas Lapangan Operasional, M19, Severity: 6, Occurrence: 7, Detection: 4
+200. Minar Butar-Butar, Petugas Lapangan Operasional, M20, Severity: 5, Occurrence: 8, Detection: 4
+201. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M01, Severity: 6, Occurrence: 8, Detection: 2
+202. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M02, Severity: 2, Occurrence: 5, Detection: 1
+203. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M03, Severity: 7, Occurrence: 2, Detection: 4
+204. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M04, Severity: 3, Occurrence: 5, Detection: 4
+205. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M05, Severity: 5, Occurrence: 7, Detection: 3
+206. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M06, Severity: 4, Occurrence: 3, Detection: 4
+207. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M07, Severity: 5, Occurrence: 7, Detection: 3
+208. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M08, Severity: 7, Occurrence: 6, Detection: 5
+209. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M09, Severity: 9, Occurrence: 2, Detection: 6
+210. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M10, Severity: 7, Occurrence: 5, Detection: 4
+211. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M11, Severity: 7, Occurrence: 4, Detection: 4
+212. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M12, Severity: 6, Occurrence: 3, Detection: 4
+213. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M13, Severity: 4, Occurrence: 6, Detection: 2
+214. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M14, Severity: 5, Occurrence: 6, Detection: 2
+215. Frames Francois Lumbartobing, Petugas Lapangan Operasional, M15, Severity: 5, Occurrence: 5, Detection: 4
+216. Frames Francois Lumbantobing, Petugas Lapangan Operasional, M16, Severity: 6, Occurrence: 6, Detection: 4
+217. Frames Francois Lumbantobing, Petugas Lapangan Operasional, M17, Severity: 4, Occurrence: 4, Detection: 4
+218. Frames Francois Lumbantobing, Petugas Lapangan Operasional, M18, Severity: 7, Occurrence: 3, Detection: 3
+219. Frames Francois Lumbantobing, Petugas Lapangan Operasional, M19, Severity: 5, Occurrence: 6, Detection: 4
+220. Frames Francois Lumbantobing, Petugas Lapangan Operasional, M20, Severity: 6, Occurrence: 8, Detection: 3
+221. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M01, Severity: 6, Occurrence: 8, Detection: 2
+222. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M02, Severity: 2, Occurrence: 5, Detection: 1
+223. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M03, Severity: 7, Occurrence: 2, Detection: 4
+224. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M04, Severity: 3, Occurrence: 5, Detection: 4
+225. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M05, Severity: 6, Occurrence: 7, Detection: 3
+226. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M06, Severity: 5, Occurrence: 5, Detection: 3
+227. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M07, Severity: 7, Occurrence: 8, Detection: 4
+228. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M08, Severity: 7, Occurrence: 6, Detection: 5
+229. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M09, Severity: 9, Occurrence: 3, Detection: 7
+230. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M10, Severity: 6, Occurrence: 7, Detection: 2
+231. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M11, Severity: 5, Occurrence: 2, Detection: 2
+232. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M12, Severity: 5, Occurrence: 5, Detection: 2
+233. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M13, Severity: 4, Occurrence: 3, Detection: 2
+234. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M14, Severity: 4, Occurrence: 4, Detection: 2
+235. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 6, Detection: 3
+236. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M16, Severity: 6, Occurrence: 5, Detection: 4
+237. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 4, Detection: 4
+238. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M18, Severity: 7, Occurrence: 3, Detection: 4
+239. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M19, Severity: 6, Occurrence: 5, Detection: 3
+240. Santo Riris Martto Hutagalung, Petugas Lapangan Operasional, M20, Severity: 5, Occurrence: 6, Detection: 3
+241. Irfan Stumreang, Petugas Lapangan Operasional, M01, Severity: 7, Occurrence: 9, Detection: 6
+242. Irfan Stumreang, Petugas Lapangan Operasional, M02, Severity: 5, Occurrence: 4, Detection: 3
+243. Irfan Stumreang, Petugas Lapangan Operasional, M03, Severity: 8, Occurrence: 3, Detection: 5
+244. Irfan Stumreang, Petugas Lapangan Operasional, M04, Severity: 6, Occurrence: 5, Detection: 5
+245. Irfan Stumreang, Petugas Lapangan Operasional, M05, Severity: 6, Occurrence: 4, Detection: 3
+246. Irfan Stumreang, Petugas Lapangan Operasional, M06, Severity: 3, Occurrence: 6, Detection: 5
+247. Irfan Stumeng, Petugas Lapangan Operasional, M07, Severity: 8, Occurrence: 8, Detection: 2
+248. Irfan Stumeng, Petugas Lapangan Operasional, M08, Severity: 7, Occurrence: 8, Detection: 2
+249. Irfan Stumeng, Petugas Lapangan Operasional, M09, Severity: 10, Occurrence: 3, Detection: 5
+250. Irfan Stumeng, Petugas Lapangan Operasional, M10, Severity: 5, Occurrence: 6, Detection: 5
+251. Irfan Stumeng, Petugas Lapangan Operasional, M11, Severity: 7, Occurrence: 6, Detection: 3
+252. Irfan Stumeng, Petugas Lapangan Operasional, M12, Severity: 4, Occurrence: 7, Detection: 2
+253. Irfan Stumeng, Petugas Lapangan Operasional, M13, Severity: 3, Occurrence: 5, Detection: 4
+254. Irfan Stumeng, Petugas Lapangan Operasional, M14, Severity: 7, Occurrence: 5, Detection: 4
+255. Irfan Stumeng, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 3, Detection: 3
+256. Irfan Stumeng, Petugas Lapangan Operasional, M16, Severity: 5, Occurrence: 7, Detection: 3
+257. Irfan Stumeng, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 5, Detection: 5
+258. Irfan Stumeng, Petugas Lapangan Operasional, M18, Severity: 6, Occurrence: 3, Detection: 5
+259. Irfan Stumeng, Petugas Lapangan Operasional, M19, Severity: 6, Occurrence: 7, Detection: 5
+260. Irfan Stumeng, Petugas Lapangan Operasional, M20, Severity: 7, Occurrence: 5, Detection: 5
+261. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M01, Severity: 6, Occurrence: 8, Detection: 6
+262. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M02, Severity: 3, Occurrence: 6, Detection: 4
+263. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M03, Severity: 9, Occurrence: 3, Detection: 3
+264. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M04, Severity: 7, Occurrence: 8, Detection: 2
+265. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M05, Severity: 7, Occurrence: 6, Detection: 3
+266. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M06, Severity: 8, Occurrence: 4, Detection: 3
+267. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M07, Severity: 7, Occurrence: 5, Detection: 3
+268. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M08, Severity: 6, Occurrence: 6, Detection: 8
+269. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M09, Severity: 10, Occurrence: 2, Detection: 6
+270. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M10, Severity: 6, Occurrence: 7, Detection: 2
+271. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M11, Severity: 5, Occurrence: 2, Detection: 2
+272. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M12, Severity: 5, Occurrence: 5, Detection: 2
+273. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M13, Severity: 5, Occurrence: 6, Detection: 3
+274. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M14, Severity: 5, Occurrence: 6, Detection: 3
+275. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 6, Detection: 4
+276. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M16, Severity: 5, Occurrence: 6, Detection: 5
+277. Ahmad Mulyadi Strompul, Petugas Lapangan Operasional, M17, Severity: 4, Occurrence: 5, Detection: 4
+278. Ahmad Mulyadi Sitompul, Petugas Lapangan Operasional, M18, Severity: 6, Occurrence: 4, Detection: 4
+279. Ahmad Mulyadi Sitompul, Petugas Lapangan Operasional, M19, Severity: 5, Occurrence: 7, Detection: 5
+280. Ahmad Mulyadi Sitompul, Petugas Lapangan Operasional, M20, Severity: 5, Occurrence: 7, Detection: 4
+281. Ruill Shiite, Petugas Lapangan Operasional, M01, Severity: 6, Occurrence: 9, Detection: 4
+282. Ruill Shiite, Petugas Lapangan Operasional, M02, Severity: 4, Occurrence: 5, Detection: 4
+283. Ruill Shiite, Petugas Lapangan Operasional, M03, Severity: 7, Occurrence: 2, Detection: 4
+284. Ruill Shiite, Petugas Lapangan Operasional, M04, Severity: 3, Occurrence: 5, Detection: 4
+285. Ruill Shiite, Petugas Lapangan Operasional, M05, Severity: 7, Occurrence: 7, Detection: 4
+286. Ruill Shiite, Petugas Lapangan Operasional, M06, Severity: 5, Occurrence: 5, Detection: 3
+287. Ruill Shiite, Petugas Lapangan Operasional, M07, Severity: 7, Occurrence: 8, Detection: 4
+288. Ruill Shiite, Petugas Lapangan Operasional, M08, Severity: 5, Occurrence: 5, Detection: 5
+289. Ruill Shiite, Petugas Lapangan Operasional, M09, Severity: 10, Occurrence: 2, Detection: 5
+290. Ruill Shiite, Petugas Lapangan Operasional, M10, Severity: 6, Occurrence: 7, Detection: 2
+291. Ruill Shiite, Petugas Lapangan Operasional, M11, Severity: 5, Occurrence: 2, Detection: 2
+292. Ruill Shiite, Petugas Lapangan Operasional, M12, Severity: 5, Occurrence: 5, Detection: 2
+293. Ruill Shiite, Petugas Lapangan Operasional, M13, Severity: 4, Occurrence: 5, Detection: 3
+294. Ruill Shiite, Petugas Lapangan Operasional, M14, Severity: 5, Occurrence: 5, Detection: 3
+295. Ruill Shiite, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 5, Detection: 4
+296. Ruill Shiite, Petugas Lapangan Operasional, M16, Severity: 5, Occurrence: 5, Detection: 5
+297. Ruill Shiite, Petugas Lapangan Operasional, M17, Severity: 4, Occurrence: 4, Detection: 4
+298. Ruill Shiite, Petugas Lapangan Operasional, M18, Severity: 7, Occurrence: 3, Detection: 3
+299. Ruill Shiite, Petugas Lapangan Operasional, M19, Severity: 4, Occurrence: 6, Detection: 4
+300. Ruill Shiite, Petugas Lapangan Operasional, M20, Severity: 5, Occurrence: 8, Detection: 3
+301. Riston Sitohang, Petugas Lapangan Operasional, M01, Severity: 6, Occurrence: 9, Detection: 4
+302. Riston Sitohang, Petugas Lapangan Operasional, M02, Severity: 4, Occurrence: 3, Detection: 4
+303. Riston Sitohang, Petugas Lapangan Operasional, M03, Severity: 7, Occurrence: 3, Detection: 2
+304. Riston Sitohang, Petugas Lapangan Operasional, M04, Severity: 7, Occurrence: 6, Detection: 7
+305. Riston Sitohang, Petugas Lapangan Operasional, M05, Severity: 6, Occurrence: 8, Detection: 5
+306. Riston Sitohang, Petugas Lapangan Operasional, M06, Severity: 4, Occurrence: 3, Detection: 4
+307. Riston Sitohang, Petugas Lapangan Operasional, M07, Severity: 5, Occurrence: 7, Detection: 3
+308. Riston Sitohang, Petugas Lapangan Operasional, M08, Severity: 7, Occurrence: 6, Detection: 5
+309. Riston Sirohang, Petugas Lapangan Operasional, M09, Severity: 10, Occurrence: 2, Detection: 5
+310. Riston Sirohang, Petugas Lapangan Operasional, M10, Severity: 6, Occurrence: 7, Detection: 2
+311. Riston Sirohang, Petugas Lapangan Operasional, M11, Severity: 4, Occurrence: 4, Detection: 1
+312. Riston Sirohang, Petugas Lapangan Operasional, M12, Severity: 5, Occurrence: 5, Detection: 2
+313. Riston Sirohang, Petugas Lapangan Operasional, M13, Severity: 4, Occurrence: 4, Detection: 4
+314. Riston Sirohang, Petugas Lapangan Operasional, M14, Severity: 4, Occurrence: 3, Detection: 3
+315. Riston Sirohang, Petugas Lapangan Operasional, M15, Severity: 6, Occurrence: 3, Detection: 3
+316. Riston Sirohang, Petugas Lapangan Operasional, M16, Severity: 5, Occurrence: 7, Detection: 3
+317. Riston Sirohang, Petugas Lapangan Operasional, M17, Severity: 5, Occurrence: 5, Detection: 5
+318. Riston Sirohang, Petugas Lapangan Operasional, M18, Severity: 6, Occurrence: 3, Detection: 5
+319. Riston Sirohang, Petugas Lapangan Operasional, M19, Severity: 6, Occurrence: 5, Detection: 3
+320. Riston Sirohang, Petugas Lapangan Operasional, M20, Severity: 6, Occurrence: 7, Detection: 3
+
+### Daftar Rata-rata Nilai FMEA dan Tingkat Risiko:
+1. M01, Deskripsi: Data Peti kemas tidak tercatat atau salah, Average S: 6.3125, Average O: 7.5625, Average D: 4.125, Average RPN: 196.9204102, Tingkat Risiko: tinggi
+2. M02, Deskripsi: Penempatan peti kemas tidak sesuai, Average S: 3.3125, Average O: 5.125, Average D: 3.1875, Average RPN: 54.11279297, Tingkat Risiko: trendan
+3. M03, Deskripsi: Kerusakan alat bongkar muat, Average S: 7.4375, Average O: 2.9375, Average D: 4.3125, Average RPN: 94.21801758, Tingkat Risiko: trendan
+4. M04, Deskripsi: Jadwal kapal tumpang tindih, Average S: 5.75, Average O: 5.6875, Average D: 4.625, Average RPN: 151.2519531, Tingkat Risiko: tinggi
+5. M05, Deskripsi: Kapal panda tidak tersedia saat dibutuhkan, Average S: 6.4375, Average O: 6.375, Average D: 3.75, Average RPN: 153.8964844, Tingkat Risiko: tinggi
+6. M06, Deskripsi: Terlambatnya jadwal distribusi logistik, Average S: 5.3125, Average O: 5.125, Average D: 4.3125, Average RPN: 117.4145508, Tingkat Risiko: sedang
+7. M07, Deskripsi: Laporan tidak rerkinin tepat waktu, Average S: 6.4375, Average O: 6.8125, Average D: 3.5625, Average RPN: 156.2351074, Tingkat Risiko: tinggi
+8. M08, Deskripsi: Data kapal dan peti kemas tidak sinkron, Average S: 6.875, Average O: 6.5625, Average D: 4.375, Average RPN: 197.3876953, Tingkat Risiko: tinggi
+9. M09, Deskripsi: Kecelakaan kerja saat bongkar muat, Average S: 9.375, Average O: 3.1875, Average D: 5.1875, Average RPN: 155.0170898, Tingkat Risiko: tinggi
+10. M10, Deskripsi: Penundaan sandar dan bongkar muat akibat cuaca, Average S: 6.125, Average O: 6.375, Average D: 3.1875, Average RPN: 124.4619141, Tingkat Risiko: sedang
+11. M11, Deskripsi: Rusakuya jalan pelabuhan atau dermaga, Average S: 5.5, Average O: 3.625, Average D: 2.5, Average RPN: 49.84375, Tingkat Risiko: trendan
+12. M12, Deskripsi: Alat berat digunakan melebihi batas beban, Average S: 5.0625, Average O: 4.875, Average D: 2.8125, Average RPN: 69.41162109, Tingkat Risiko: trendan
+13. M13, Deskripsi: Penumpukan barang tidak rapi, Average S: 4.3125, Average O: 5.125, Average D: 3.125, Average RPN: 69.06738281, Tingkat Risiko: trendan
+14. M14, Deskripsi: Overload penumpukan di lapangan peti kemas, Average S: 5, Average O: 4.8125, Average D: 3.3125, Average RPN: 79.70703125, Tingkat Risiko: trendan
+15. M15, Deskripsi: Terjadi salah komunikasi antara pandu & kapal, Average S: 5.875, Average O: 4.375, Average D: 3.8125, Average RPN: 97.99316406, Tingkat Risiko: trendan
+16. M16, Deskripsi: Waktu sandar terlalu lama, Average S: 5.375, Average O: 5.75, Average D: 4.1875, Average RPN: 129.4199219, Tingkat Risiko: sedang
+17. M17, Deskripsi: Barang tidak terpantau, Average S: 4.875, Average O: 4.9375, Average D: 4.5625, Average RPN: 109.8208008, Tingkat Risiko: sedang
+18. M18, Deskripsi: Barang salah kirim, Average S: 6.5625, Average O: 3.125, Average D: 3.75, Average RPN: 76.90429688, Tingkat Risiko: trendan
+19. M19, Deskripsi: Perintah kerja tidak tersampalkan, Average S: 5.4375, Average O: 6.5, Average D: 4.0625, Average RPN: 143.5839844, Tingkat Risiko: sedang
+20. M20, Deskripsi: Informasi status kapal tidak seragam, Average S: 5.875, Average O: 7.0625, Average D: 3.75, Average RPN: 155.5957031, Tingkat Risiko: tinggi
+
+### Keterangan:
+- Severity: seberapa parah dampaknya
+- Occurrence: seberapa sering terjadi
+- Detection: seberapa mudah dideteksi sebelum terjadi masalah

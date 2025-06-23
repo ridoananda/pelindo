@@ -6,6 +6,7 @@ use App\Http\Controllers\ShipController;
 use App\Http\Controllers\LogisticController;
 use App\Http\Controllers\CargoActivityController;
 use App\Http\Controllers\RiskController;
+
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Foundation\Application;
@@ -31,6 +32,11 @@ Route::middleware(['auth', 'role:operator,manager'])->group(function () {
     Route::post('/risk-reports', [RiskController::class, 'storeReport'])->name('risk-reports.store');
     Route::put('/risks/{risk}', [RiskController::class, 'update'])->name('risks.update');
     Route::delete('/risks/{risk}', [RiskController::class, 'destroy'])->name('risks.destroy');
+
+    // FMEA Risk Assessment - accessible by both roles (integrated with risk management)
+    Route::post('/risk-assessments', [RiskController::class, 'storeAssessment'])->name('risk-assessments.store');
+    Route::put('/risk-assessments/{riskAssessment}', [RiskController::class, 'updateAssessment'])->name('risk-assessments.update');
+    Route::delete('/risk-assessments/{riskAssessment}', [RiskController::class, 'destroyAssessment'])->name('risk-assessments.destroy');
 
     // Reports - accessible by both roles
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');

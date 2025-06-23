@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Risk;
 use App\Models\RiskReport;
+use App\Models\RiskAssessment;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -15,6 +16,10 @@ class RiskController extends Controller
         $riskStatus = $this->calculateOverallRiskStatus($risks);
         $riskReports = RiskReport::latest()->get();
 
+        // FMEA Data
+        $riskAssessments = RiskAssessment::orderBy('risk_code')->get();
+        $fmeaAnalysisSummary = RiskAssessment::getAnalysisSummary();
+
         // Calculate risk statistics
         $riskStats = $this->calculateRiskStatistics($risks);
 
@@ -23,6 +28,8 @@ class RiskController extends Controller
             'riskStatus' => $riskStatus,
             'riskReports' => $riskReports,
             'riskStats' => $riskStats,
+            'riskAssessments' => $riskAssessments,
+            'fmeaAnalysisSummary' => $fmeaAnalysisSummary,
         ]);
     }
 
@@ -110,5 +117,46 @@ class RiskController extends Controller
         $risk->delete();
 
         return redirect()->route('risks.index');
+    }
+
+    // FMEA Assessment Methods
+    public function storeAssessment(Request $request)
+    {
+        $validated = $request->validate([
+            'respondent_name' => 'required|string|max:255',
+            'respondent_job' => 'required|in:Manajer Bistek Operasional,Petugas Lapangan Operasional',
+            'risk_code' => 'required|string|max:10',
+            'risk_description' => 'required|string',
+            'severity' => 'required|integer|min:1|max:10',
+            'occurrence' => 'required|integer|min:1|max:10',
+            'detection' => 'required|integer|min:1|max:10',
+        ]);
+
+        RiskAssessment::create($validated);
+
+        return redirect()->route('risks.index')->with('success', 'Assessment berhasil ditambahkan.');
+    }
+
+    public function updateAssessment(Request $request, RiskAssessment $riskAssessment)
+    {
+        $validated = $request->validate([
+            'respondent_name' => 'required|string|max:255',
+            'respondent_job' => 'required|in:Manajer Bistek Operasional,Petugas Lapangan Operasional',
+            'risk_code' => 'required|string|max:10',
+            'risk_description' => 'required|string',
+            'severity' => 'required|integer|min:1|max:10',
+            'occurrence' => 'required|integer|min:1|max:10',
+            'detection' => 'required|integer|min:1|max:10',
+        ]);
+
+        $riskAssessment->update($validated);
+
+        return redirect()->route('risks.index')->with('success', 'Assessment berhasil diperbarui.');
+    }
+
+    public function destroyAssessment(RiskAssessment $riskAssessment)
+    {
+        $riskAssessment->delete();
+        return redirect()->route('risks.index')->with('success', 'Assessment berhasil dihapus.');
     }
 }

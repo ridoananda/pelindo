@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             CargoActivitySeeder::class,
             RiskSeeder::class,
             RiskReportSeeder::class,
+            RiskAssessmentSeeder::class,
             ProductionSeeder::class,
         ]);
     }
