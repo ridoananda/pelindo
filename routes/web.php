@@ -29,9 +29,13 @@ Route::middleware(['auth', 'role:operator,manager'])->group(function () {
     // Risk management - accessible by both roles
     Route::get('/risks', [RiskController::class, 'index'])->name('risks.index');
     Route::post('/risks', [RiskController::class, 'store'])->name('risks.store');
-    Route::post('/risk-reports', [RiskController::class, 'storeReport'])->name('risk-reports.store');
     Route::put('/risks/{risk}', [RiskController::class, 'update'])->name('risks.update');
     Route::delete('/risks/{risk}', [RiskController::class, 'destroy'])->name('risks.destroy');
+
+    // Risk reports - accessible by both roles
+    Route::post('/risk-reports', [RiskController::class, 'storeReport'])->name('risk-reports.store');
+    Route::put('/risk-reports/{riskReport}', [RiskController::class, 'updateReport'])->name('risk-reports.update');
+    Route::delete('/risk-reports/{riskReport}', [RiskController::class, 'destroyReport'])->name('risk-reports.destroy');
 
     // FMEA Risk Assessment - accessible by both roles (integrated with risk management)
     Route::post('/risk-assessments', [RiskController::class, 'storeAssessment'])->name('risk-assessments.store');

@@ -30,6 +30,10 @@ class RiskController extends Controller
             'riskStats' => $riskStats,
             'riskAssessments' => $riskAssessments,
             'fmeaAnalysisSummary' => $fmeaAnalysisSummary,
+            'flash' => [
+                'success' => session('success'),
+                'error' => session('error'),
+            ],
         ]);
     }
 
@@ -81,7 +85,7 @@ class RiskController extends Controller
 
         Risk::create($validated);
 
-        return redirect()->route('risks.index');
+        return redirect()->route('risks.index')->with('success', 'Data risiko berhasil ditambahkan.');
     }
 
     public function storeReport(Request $request)
@@ -95,7 +99,7 @@ class RiskController extends Controller
 
         RiskReport::create($validated);
 
-        return redirect()->route('risks.index');
+        return redirect()->route('risks.index')->with('success', 'Laporan risiko berhasil ditambahkan.');
     }
 
     public function update(Request $request, Risk $risk)
@@ -109,14 +113,35 @@ class RiskController extends Controller
 
         $risk->update($validated);
 
-        return redirect()->route('risks.index');
+        return redirect()->route('risks.index')->with('success', 'Data risiko berhasil diperbarui.');
     }
 
     public function destroy(Risk $risk)
     {
         $risk->delete();
 
-        return redirect()->route('risks.index');
+        return redirect()->route('risks.index')->with('success', 'Data risiko berhasil dihapus.');
+    }
+
+    public function updateReport(Request $request, RiskReport $riskReport)
+    {
+        $validated = $request->validate([
+            'report_date' => 'required|date',
+            'risk_type' => 'required|string|max:255',
+            'description' => 'required|string',
+            'recommended_action' => 'required|string',
+        ]);
+
+        $riskReport->update($validated);
+
+        return redirect()->route('risks.index')->with('success', 'Laporan risiko berhasil diperbarui.');
+    }
+
+    public function destroyReport(RiskReport $riskReport)
+    {
+        $riskReport->delete();
+
+        return redirect()->route('risks.index')->with('success', 'Laporan risiko berhasil dihapus.');
     }
 
     // FMEA Assessment Methods
