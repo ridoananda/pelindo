@@ -33,26 +33,20 @@ class DashboardController extends Controller
         $risks = Risk::all();
 
         if ($risks->isEmpty()) {
-            return 'Rendah';
+            return 'Normal';
         }
 
         // Count risks by status
         $riskCounts = [
-            'Ekstrim' => $risks->where('status', 'Ekstrim')->count(),
             'Tinggi' => $risks->where('status', 'Tinggi')->count(),
-            'Menengah' => $risks->where('status', 'Menengah')->count(),
-            'Rendah' => $risks->where('status', 'Rendah')->count(),
+            'Normal' => $risks->where('status', 'Normal')->count(),
         ];
 
         // Determine overall risk status based on highest risk level present
-        if ($riskCounts['Ekstrim'] > 0) {
-            return 'Ekstrim';
-        } elseif ($riskCounts['Tinggi'] > 0) {
+        if ($riskCounts['Tinggi'] > 0) {
             return 'Tinggi';
-        } elseif ($riskCounts['Menengah'] > 0) {
-            return 'Menengah';
         } else {
-            return 'Rendah';
+            return 'Normal';
         }
     }
 }

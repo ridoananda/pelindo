@@ -31,12 +31,8 @@ export default function RiskReport({ risks, riskReports, riskStats, reportType, 
       label: 'Tingkat Risiko',
       render: (item) => (
         <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-          item.status === 'Ekstrim'
+          item.status === 'Tinggi'
             ? 'bg-red-100 text-red-800'
-            : item.status === 'Tinggi'
-            ? 'bg-orange-100 text-orange-800'
-            : item.status === 'Menengah'
-            ? 'bg-yellow-100 text-yellow-800'
             : 'bg-green-100 text-green-800'
         }`}>
           {item.status}
@@ -137,10 +133,8 @@ export default function RiskReport({ risks, riskReports, riskStats, reportType, 
   // Default riskStats if not provided
   const stats = riskStats || {
     total: risks.length,
-    ekstrim: risks.filter(item => item.status === 'Ekstrim').length,
     tinggi: risks.filter(item => item.status === 'Tinggi').length,
-    menengah: risks.filter(item => item.status === 'Menengah').length,
-    rendah: risks.filter(item => item.status === 'Rendah').length,
+    normal: risks.filter(item => item.status === 'Normal').length,
   };
 
   return (
@@ -166,17 +160,6 @@ export default function RiskReport({ risks, riskReports, riskStats, reportType, 
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">Ekstrim</p>
-                <p className="text-2xl font-bold text-red-600">{stats.ekstrim}</p>
-              </div>
-              <div className="h-8 w-8 bg-red-100 rounded-full flex items-center justify-center">
-                <span className="text-red-600 font-bold text-sm">!</span>
-              </div>
-            </div>
-          </div>
 
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between">
@@ -193,11 +176,11 @@ export default function RiskReport({ risks, riskReports, riskStats, reportType, 
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Menengah</p>
-                <p className="text-2xl font-bold text-yellow-600">{stats.menengah}</p>
+                <p className="text-sm font-medium text-gray-600">Normal</p>
+                <p className="text-2xl font-bold text-green-600">{stats.normal}</p>
               </div>
-              <div className="h-8 w-8 bg-yellow-100 rounded-full flex items-center justify-center">
-                <span className="text-yellow-600 font-bold text-sm">◐</span>
+              <div className="h-8 w-8 bg-green-100 rounded-full flex items-center justify-center">
+                <span className="text-green-600 font-bold text-sm">✓</span>
               </div>
             </div>
           </div>

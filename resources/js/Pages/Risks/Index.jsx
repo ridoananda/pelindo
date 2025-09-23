@@ -104,9 +104,7 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
       accessor: 'status',
       cell: (value) => (
         <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-          value === 'Ekstrim' ? 'bg-red-500 text-white' :
-          value === 'Tinggi' ? 'bg-orange-500 text-white' :
-          value === 'Menengah' ? 'bg-yellow-500 text-white' :
+          value === 'Tinggi' ? 'bg-red-500 text-white' :
           'bg-green-500 text-white'
         }`}>
           {value}
@@ -212,7 +210,6 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
       accessor: null,
       cell: (value, row, index) => index + 1
     },
-    { header: 'Nama Responden', accessor: 'respondent_name' },
     { header: 'Pekerjaan Responden', accessor: 'respondent_job', cell: (value) =>
       <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">{value}</span>
     },
@@ -233,13 +230,12 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
       accessor: null,
       cell: (value, row) => {
         const rpn = row.severity * row.occurrence * row.detection;
-        const riskLevel = rpn >= 150 ? 'Tinggi' : rpn >= 100 ? 'Sedang' : 'Rendah';
+        const riskLevel = rpn >= 150 ? 'Tinggi' : 'Normal';
         return (
           <div className="text-center">
             <div className="font-bold text-lg">{rpn}</div>
             <span className={`px-2 py-1 rounded-full text-xs font-bold ${
               riskLevel === 'Tinggi' ? 'bg-red-500 text-white' :
-              riskLevel === 'Sedang' ? 'bg-yellow-500 text-white' :
               'bg-green-500 text-white'
             }`}>
               {riskLevel}
@@ -300,7 +296,6 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
       cell: (value) => (
         <span className={`px-3 py-1 rounded-full text-xs font-bold ${
           value === 'Tinggi' ? 'bg-red-500 text-white' :
-          value === 'Sedang' ? 'bg-yellow-500 text-white' :
           'bg-green-500 text-white'
         }`}>
           {value}
@@ -314,7 +309,6 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
 
     return riskAssessments.filter(assessment => {
       const matchesSearch =
-        assessment.respondent_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         assessment.risk_code.toLowerCase().includes(searchTerm.toLowerCase()) ||
         assessment.risk_description.toLowerCase().includes(searchTerm.toLowerCase());
 
@@ -326,7 +320,7 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
 
   // Chart data for Risk Level Distribution
   const riskLevelDistribution = useMemo(() => {
-    const distribution = { 'Tinggi': 0, 'Sedang': 0, 'Rendah': 0 };
+    const distribution = { 'Tinggi': 0, 'Normal': 0 };
     if (fmeaAnalysisSummary && Array.isArray(fmeaAnalysisSummary)) {
       fmeaAnalysisSummary.forEach(item => {
         if (distribution.hasOwnProperty(item.tingkat_risiko)) {
@@ -344,8 +338,7 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
         data: Object.values(riskLevelDistribution),
         backgroundColor: [
           '#ef4444', // Red for Tinggi
-          '#f59e0b', // Yellow for Sedang
-          '#10b981', // Green for Rendah
+          '#10b981', // Green for Normal
         ],
         borderColor: '#ffffff',
         borderWidth: 3,
@@ -361,8 +354,7 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
         label: 'Risk Priority Number (RPN)',
         data: (fmeaAnalysisSummary && Array.isArray(fmeaAnalysisSummary)) ? fmeaAnalysisSummary.slice(0, 10).map(item => item.avg_rpn) : [],
         backgroundColor: (fmeaAnalysisSummary && Array.isArray(fmeaAnalysisSummary)) ? fmeaAnalysisSummary.slice(0, 10).map(item =>
-          item.tingkat_risiko === 'Tinggi' ? '#ef4444' :
-          item.tingkat_risiko === 'Sedang' ? '#f59e0b' : '#10b981'
+          item.tingkat_risiko === 'Tinggi' ? '#ef4444' : '#10b981'
         ) : [],
         borderColor: '#374151',
         borderWidth: 1,
@@ -507,7 +499,7 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
         return {
           title: 'Hapus Assessment FMEA',
           message: 'Apakah Anda yakin ingin menghapus assessment FMEA ini?',
-          itemName: `${deleteItem.respondent_name} - ${deleteItem.risk_code}`,
+          itemName: deleteItem.risk_code,
         };
       default:
         return {};
@@ -529,7 +521,7 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
 
       <div className="p-8 bg-gray-50">
         {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white p-6 rounded-xl shadow-md">
             <div className="flex items-center">
               <div className="p-3 rounded-full bg-blue-100 text-blue-600">
@@ -544,19 +536,6 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-red-100 text-red-600">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 18.5c-.77.833.192 2.5 1.732 2.5z" />
-                </svg>
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Risiko Ekstrim</p>
-                <p className="text-2xl font-bold text-red-600">{riskStats?.ekstrim || 0}</p>
-              </div>
-            </div>
-          </div>
 
           <div className="bg-white p-6 rounded-xl shadow-md">
             <div className="flex items-center">
@@ -582,9 +561,7 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
               <div className="ml-4">
                 <p className="text-sm font-medium text-gray-600">Status Keseluruhan</p>
                 <p className={`text-2xl font-bold ${
-                  riskStatus === 'Ekstrim' ? 'text-red-600' :
-                  riskStatus === 'Tinggi' ? 'text-orange-600' :
-                  riskStatus === 'Menengah' ? 'text-yellow-600' :
+                  riskStatus === 'Tinggi' ? 'text-red-600' :
                   'text-green-600'
                 }`}>
                   {riskStatus}

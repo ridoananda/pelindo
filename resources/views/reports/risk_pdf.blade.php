@@ -15,10 +15,8 @@
         .stats-cell { display: table-cell; width: 20%; text-align: center; padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; }
         .stats-label { font-size: 0.8em; color: #666; margin-bottom: 5px; }
         .stats-value { font-size: 1.2em; font-weight: bold; }
-        .stats-ekstrim { color: #dc2626; }
         .stats-tinggi { color: #ea580c; }
-        .stats-menengah { color: #d97706; }
-        .stats-rendah { color: #16a34a; }
+        .stats-normal { color: #16a34a; }
         .stats-total { color: #374151; }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.85em;}
         th, td { border: 1px solid #333333; padding: 6px 8px; text-align: left; word-wrap: break-word; }
@@ -44,16 +42,12 @@
                 <div class="stats-value stats-total">{{ $riskStats['total'] ?? 0 }}</div>
             </div>
             <div class="stats-cell">
-                <div class="stats-label">Ekstrim</div>
-                <div class="stats-value stats-ekstrim">{{ $riskStats['ekstrim'] ?? 0 }}</div>
-            </div>
-            <div class="stats-cell">
                 <div class="stats-label">Tinggi</div>
                 <div class="stats-value stats-tinggi">{{ $riskStats['tinggi'] ?? 0 }}</div>
             </div>
             <div class="stats-cell">
-                <div class="stats-label">Menengah</div>
-                <div class="stats-value stats-menengah">{{ $riskStats['menengah'] ?? 0 }}</div>
+                <div class="stats-label">Normal</div>
+                <div class="stats-value stats-normal">{{ $riskStats['normal'] ?? 0 }}</div>
             </div>
             <div class="stats-cell">
                 <div class="stats-label">Rendah</div>

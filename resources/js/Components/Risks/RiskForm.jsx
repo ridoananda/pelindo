@@ -16,17 +16,15 @@ export default function RiskForm({ risk = null, onClose, isEdit = false }) {
   const { data, setData, post, put, processing, errors, reset } = useForm({
     type: risk?.type || '',
     impact: risk?.impact || '',
-    status: risk?.status || 'Rendah',
+    status: risk?.status || 'Normal',
     recommendation: risk?.recommendation || '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const statusOptions = [
-    { value: 'Rendah', label: 'Rendah' },
-    { value: 'Menengah', label: 'Menengah' },
+    { value: 'Normal', label: 'Normal' },
     { value: 'Tinggi', label: 'Tinggi' },
-    { value: 'Ekstrim', label: 'Ekstrim' },
   ];
 
   const handleSubmit = (e) => {

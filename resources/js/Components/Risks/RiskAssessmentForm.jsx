@@ -37,7 +37,7 @@ export default function RiskAssessmentForm({ assessment = null, onClose, isEdit 
 
   // Calculate RPN
   const rpn = data.severity * data.occurrence * data.detection;
-  const riskLevel = rpn >= 150 ? 'Tinggi' : rpn >= 100 ? 'Sedang' : 'Rendah';
+  const riskLevel = rpn >= 150 ? 'Tinggi' : 'Normal';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -194,7 +194,6 @@ export default function RiskAssessmentForm({ assessment = null, onClose, isEdit 
               <div className="text-2xl font-bold text-gray-900">{rpn}</div>
               <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                 riskLevel === 'Tinggi' ? 'bg-red-500 text-white' :
-                riskLevel === 'Sedang' ? 'bg-yellow-500 text-white' :
                 'bg-green-500 text-white'
               }`}>
                 {riskLevel}
