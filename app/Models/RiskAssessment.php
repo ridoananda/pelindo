@@ -58,10 +58,10 @@ class RiskAssessment extends Model
             $summary[] = [
                 'kode' => $code,
                 'deskripsi' => $codeAssessments->first()->risk_description,
-                'avg_severity' => round($avgSeverity, 4),
-                'avg_occurrence' => round($avgOccurrence, 4),
-                'avg_detection' => round($avgDetection, 4),
-                'avg_rpn' => round($avgRpn, 8),
+                'avg_severity' => $avgSeverity,
+                'avg_occurrence' => $avgOccurrence,
+                'avg_detection' => $avgDetection,
+                'avg_rpn' => $avgRpn,
                 'tingkat_risiko' => $riskLevel
             ];
         }

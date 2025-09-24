@@ -10,6 +10,7 @@ import Toast from '@/Components/Toast';
 import RiskForm from '@/Components/Risks/RiskForm';
 import RiskReportForm from '@/Components/Risks/RiskReportForm';
 import RiskAssessmentForm from '@/Components/Risks/RiskAssessmentForm';
+import RiskManagementTab from '@/Components/Risks/RiskManagementTab';
 import DeleteConfirmationModal from '@/Components/Risks/DeleteConfirmationModal';
 import theme from '@/theme';
 import { Bar, Pie } from 'react-chartjs-2';
@@ -636,6 +637,16 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
               >
                 Hasil Analisis FMEA
               </button>
+              <button
+                onClick={() => setActiveTab('management')}
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'management'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                Manajemen Risiko
+              </button>
             </nav>
           </div>
 
@@ -885,6 +896,11 @@ export default function RisksIndex({ risks, riskStatus, riskReports, riskStats, 
                 </div>
               </div>
             </>
+            )}
+
+            {/* Management Tab */}
+            {activeTab === 'management' && (
+              <RiskManagementTab />
             )}
           </div>
         </div>
