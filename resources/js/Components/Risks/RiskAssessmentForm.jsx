@@ -37,7 +37,7 @@ export default function RiskAssessmentForm({ assessment = null, onClose, isEdit 
 
   // Calculate RPN
   const rpn = data.severity * data.occurrence * data.detection;
-  const riskLevel = rpn >= 150 ? 'Tinggi' : 'Normal';
+  const riskLevel = rpn >= 125 ? 'Tinggi' : 'Normal';
 
   const handleSubmit = (e) => {
     e.preventDefault();

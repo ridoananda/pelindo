@@ -149,7 +149,7 @@ export default function RiskReport({ risks, riskReports, riskStats, reportType, 
 
       <div className="p-4 md:p-8 bg-gray-50 min-h-screen">
         {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between">
               <div>
@@ -185,17 +185,6 @@ export default function RiskReport({ risks, riskReports, riskStats, reportType, 
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">Rendah</p>
-                <p className="text-2xl font-bold text-green-600">{stats.rendah}</p>
-              </div>
-              <div className="h-8 w-8 bg-green-100 rounded-full flex items-center justify-center">
-                <span className="text-green-600 font-bold text-sm">✓</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Data Tables */}

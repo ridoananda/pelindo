@@ -50,8 +50,6 @@
                 <div class="stats-value stats-normal">{{ $riskStats['normal'] ?? 0 }}</div>
             </div>
             <div class="stats-cell">
-                <div class="stats-label">Rendah</div>
-                <div class="stats-value stats-rendah">{{ $riskStats['rendah'] ?? 0 }}</div>
             </div>
         </div>
     </div>

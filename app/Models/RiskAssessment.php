@@ -30,12 +30,10 @@ class RiskAssessment extends Model
     {
         $rpn = $this->rpn;
 
-        if ($rpn >= 150) {
+        if ($rpn >= 125) {
             return 'Tinggi';
-        } elseif ($rpn >= 100) {
-            return 'Sedang';
         } else {
-            return 'Rendah';
+            return 'Normal';
         }
     }
 
@@ -52,11 +50,9 @@ class RiskAssessment extends Model
             $avgDetection = $codeAssessments->avg('detection');
             $avgRpn = $avgSeverity * $avgOccurrence * $avgDetection;
 
-            $riskLevel = 'Rendah';
-            if ($avgRpn >= 150) {
+            $riskLevel = 'Normal';
+            if ($avgRpn >= 125) {
                 $riskLevel = 'Tinggi';
-            } elseif ($avgRpn >= 100) {
-                $riskLevel = 'Sedang';
             }
 
             $summary[] = [
@@ -70,9 +66,12 @@ class RiskAssessment extends Model
             ];
         }
 
-        // Sort by RPN descending
+        // Sort by kode ascending (M01, M02, M03, etc.)
         usort($summary, function($a, $b) {
-            return $b['avg_rpn'] <=> $a['avg_rpn'];
+            // Extract numeric part from kode (e.g., M01 -> 1, M02 -> 2)
+            $numA = (int) substr($a['kode'], 1);
+            $numB = (int) substr($b['kode'], 1);
+            return $numA <=> $numB;
         });
 
         return $summary;

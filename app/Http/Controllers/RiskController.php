@@ -17,7 +17,7 @@ class RiskController extends Controller
         $riskReports = RiskReport::latest()->get();
 
         // FMEA Data
-        $riskAssessments = RiskAssessment::orderBy('risk_code')->get();
+        $riskAssessments = RiskAssessment::orderBy('respondent_job', 'asc')->orderBy('risk_code')->orderBy('respondent_name')->get();
         $fmeaAnalysisSummary = RiskAssessment::getAnalysisSummary();
 
         // Calculate risk statistics
